@@ -1,41 +1,76 @@
+---
+hide:
+  - navigation
+  - toc
+---
+
+<div class="edra-hero" markdown>
+<img src="img/logo-edra.png" alt="EDRA" class="edra-hero__logo">
+
 # EdraWiki
 
-Bem-vindo(a) ao hub central de **documentação técnica** da EDRA — Equipe de
-Robótica Aérea da UnB.
+<p class="edra-hero__tagline">
+O hub central de documentação técnica da EDRA — Equipe de Robótica Aérea da UnB.
+Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
+</p>
 
-Aqui reunimos, num só lugar de fácil acesso, os guias, tutoriais e o conhecimento
-técnico da equipe — para os membros atuais e, principalmente, para quem está
-começando agora.
+<div class="edra-hero__buttons" markdown>
+[Mapa da Documentação](mapa-da-documentacao.md){ .md-button .md-button--primary }
+[Simulação CBR2025](simulacao/cbr2025-arena-missao1.md){ .md-button }
+[Como contribuir](contribuir.md){ .md-button }
+</div>
+</div>
 
 ## Por onde começar
 
 <div class="grid cards" markdown>
 
-- :material-map-search: **[Mapa da Documentação](mapa-da-documentacao.md)**
+- :material-map-search:{ .lg } **[Mapa da Documentação](mapa-da-documentacao.md)**
 
-    O índice de tudo. Aponta para toda a documentação que existe nos repositórios
-    da organização, organizada por tema.
+    ---
 
-- :material-quadcopter: **[Simulação CBR2025](simulacao/cbr2025-arena-missao1.md)**
+    O índice de tudo. Aponta para toda a documentação que existe nos 53
+    repositórios da organização, organizada por tema.
 
-    Passo a passo completo de como montar e rodar a arena + missão de detecção/pouso
-    (PX4 + Gazebo + ROS 2), com todos os problemas e soluções.
+- :material-quadcopter:{ .lg } **[Simulação CBR2025](simulacao/cbr2025-arena-missao1.md)**
 
-- :material-download: **[Setup e Instalação](setup/index.md)**
+    ---
 
-    Como preparar o ambiente: PX4, ROS 2, Gazebo, Docker, ponte uXRCE-DDS.
+    Passo a passo completo da arena + missão de detecção/pouso (PX4 + Gazebo +
+    ROS 2), com todos os problemas e soluções.
 
-- :material-eye: **[Visão Computacional](visao/index.md)**
+- :material-download:{ .lg } **[Setup e Instalação](setup/index.md)**
 
-    Datasets, treinamento de modelos, detecção de bases, inferência.
+    ---
+
+    Como preparar o ambiente: PX4, ROS 2, Gazebo, Docker e a ponte uXRCE-DDS.
+
+- :material-eye:{ .lg } **[Visão Computacional](visao/index.md)**
+
+    ---
+
+    Datasets, treinamento de modelos, detecção de bases e inferência embarcada.
+
+- :material-raspberry-pi:{ .lg } **[Hardware / Raspberry](hardware/index.md)**
+
+    ---
+
+    Computadores de bordo (RPi 5), câmeras e bancadas de teste.
+
+- :material-hand-heart:{ .lg } **[Como contribuir](contribuir.md)**
+
+    ---
+
+    Adicionar uma página é simples: escreva em markdown e abra um PR. Ao dar
+    merge, o site publica sozinho.
 
 </div>
 
-## Sobre este repositório
+---
 
-- É a **contraparte técnica** do [EdraDocs](https://edra-unb-fga.github.io/EdraDocs/)
-  (que é o site institucional da equipe — história, membros, patrocinadores).
-- A estratégia é **mapear e centralizar aos poucos**: o
-  [Mapa da Documentação](mapa-da-documentacao.md) já aponta para o que existe hoje;
-  o conteúdo vai sendo migrado para cá conforme for sendo revisado.
-- Quer adicionar algo? Veja [Como contribuir](contribuir.md).
+!!! tip "Sobre este site"
+    A EdraWiki é a **contraparte técnica** do
+    [EdraDocs](https://edra-unb-fga.github.io/EdraDocs/) (o site institucional da
+    equipe). A estratégia é **mapear e centralizar aos poucos**: o
+    [Mapa da Documentação](mapa-da-documentacao.md) já aponta para tudo que existe
+    hoje; o conteúdo vai sendo migrado para cá conforme for revisado.

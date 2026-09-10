@@ -1,0 +1,115 @@
+/* ===== Paleta da marca EDRA ===== */
+:root {
+  --edra-blue:   #3b4a94;
+  --edra-blue-d: #2b3670;
+  --edra-green:  #1f8b3b;
+  --edra-green-d:#136528;
+  --edra-cyan:   #4a9fd4;
+  --edra-navy:   #171c34;
+}
+
+/* Cor primária/accent (claro) */
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color:        var(--edra-blue);
+  --md-primary-fg-color--light: var(--edra-cyan);
+  --md-primary-fg-color--dark:  var(--edra-blue-d);
+  --md-accent-fg-color:         var(--edra-green);
+}
+
+/* Cor primária/accent (escuro) */
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color:        var(--edra-blue);
+  --md-accent-fg-color:         #2bb14f;
+  --md-hue: 232;
+}
+
+/* ===== HERO da homepage ===== */
+.edra-hero {
+  margin: -1.2rem -0.8rem 2rem;
+  padding: 4.5rem 1.5rem 4rem;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(1200px 400px at 80% -10%, rgba(74,159,212,.55), transparent 60%),
+    linear-gradient(120deg, var(--edra-blue-d) 0%, var(--edra-blue) 45%, var(--edra-green-d) 100%);
+  border-radius: 0 0 24px 24px;
+  position: relative;
+  overflow: hidden;
+}
+.edra-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: .5;
+  pointer-events: none;
+}
+.edra-hero img.edra-hero__logo {
+  width: 118px; height: 118px;
+  border-radius: 50%;
+  box-shadow: 0 6px 28px rgba(0,0,0,.35);
+  margin-bottom: 1rem;
+  position: relative; z-index: 1;
+}
+.edra-hero h1 {
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin: .2rem 0 .4rem;
+  color: #fff;
+  letter-spacing: -.5px;
+  position: relative; z-index: 1;
+}
+.edra-hero p.edra-hero__tagline {
+  font-size: 1.12rem;
+  max-width: 640px;
+  margin: 0 auto 1.8rem;
+  opacity: .95;
+  position: relative; z-index: 1;
+}
+.edra-hero__buttons { position: relative; z-index: 1; }
+.edra-hero .md-button {
+  margin: .3rem .4rem;
+  border-radius: 999px;
+  font-weight: 600;
+  padding: .55rem 1.4rem;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.edra-hero .md-button:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(0,0,0,.25); }
+.edra-hero .md-button--primary {
+  background: #fff; color: var(--edra-blue-d); border-color: #fff;
+}
+.edra-hero .md-button--primary:hover { background: #f3f6ff; color: var(--edra-blue-d); }
+/* botões secundários: contorno branco nítido + leve preenchimento translúcido */
+.edra-hero .md-button:not(.md-button--primary) {
+  color: #fff;
+  border: 2px solid rgba(255,255,255,.85);
+  background: rgba(255,255,255,.08);
+}
+.edra-hero .md-button:not(.md-button--primary):hover {
+  background: rgba(255,255,255,.18);
+  border-color: #fff;
+  color: #fff;
+}
+
+/* ===== Cards com hover ===== */
+.md-typeset .grid.cards > ul > li,
+.md-typeset .grid.cards > :is(ul,ol) > li {
+  border-radius: 14px;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+}
+.md-typeset .grid.cards > :is(ul,ol) > li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  border-color: var(--edra-blue);
+}
+.md-typeset .grid.cards .twemoji,
+.md-typeset .grid.cards .material-icons { color: var(--edra-blue); }
+
+/* ===== Detalhes ===== */
+.md-typeset h1, .md-typeset h2 { letter-spacing: -.3px; }
+.md-typeset table:not([class]) th { background: var(--edra-blue); color:#fff; }
+.md-header { box-shadow: 0 2px 12px rgba(0,0,0,.12); }
+
+/* Seção "situação da migração" com barra de progresso visual leve */
+.md-typeset .task-list-control .task-list-indicator::before { background-color: var(--edra-green); }
