@@ -1,0 +1,75 @@
+site_name: EdraWiki
+site_description: Hub central de documentação técnica, guias e tutoriais da EDRA (UnB)
+repo_name: "EdraWiki"
+repo_url: https://github.com/edra-unb-fga/EdraWiki
+docs_dir: docs
+
+nav:
+  - Início: 'index.md'
+  - Mapa da Documentação: 'mapa-da-documentacao.md'
+  - Simulação:
+      - CBR2025 — Arena + Missão 1: 'simulacao/cbr2025-arena-missao1.md'
+  - Setup e Instalação:
+      - Visão geral: 'setup/index.md'
+  - Visão Computacional:
+      - Visão geral: 'visao/index.md'
+  - Hardware / Raspberry:
+      - Visão geral: 'hardware/index.md'
+  - Como contribuir: 'contribuir.md'
+
+theme:
+  name: material
+  language: pt
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotate
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-night
+        name: Mudar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: deep orange
+      toggle:
+        icon: material/weather-sunny
+        name: Mudar para modo claro
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/edra-unb-fga
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/company/edra-unb
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/edraunb
