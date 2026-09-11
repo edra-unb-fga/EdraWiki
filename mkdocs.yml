@@ -15,11 +15,13 @@ nav:
       - Visão geral: 'setup/index.md'
       - Instalação nativa (Linux): 'setup/instalacao-nativa.md'
       - Docker no Windows (WSL2): 'setup/docker-windows.md'
+      - Ponte uXRCE-DDS (PX4 ↔ ROS 2): 'setup/uxrce-dds.md'
   - Controle:
       - Visão geral: 'controle/index.md'
       - Modo Offboard (posição × velocidade): 'controle/offboard.md'
   - Visão Computacional:
       - Visão geral: 'visao/index.md'
+      - Dataset sintético e treino (YOLO): 'visao/dataset-e-treino.md'
   - Hardware / Raspberry:
       - Visão geral: 'hardware/index.md'
   - Como contribuir: 'contribuir.md'

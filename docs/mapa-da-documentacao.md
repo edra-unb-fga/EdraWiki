@@ -122,8 +122,8 @@ Conforme o conteúdo for revisado e trazido para a EdraWiki, marcamos aqui:
 - [x] Inicialização desacoplada (fix timeout do gz_bridge) — **migrado** ✅
 - [x] Lista de erros comuns (a partir de `gazebo-px4/docs/LISTA_DE_ERROS.md`) — **migrado** ✅
 - [x] Controle Offboard — posição × velocidade (a partir de `Producao-do-relatorio-da-SAE`) — **migrado** ✅
-- [ ] uXRCE-DDS — configuração da ponte (a partir de `uXRCE-configuration`)
-- [ ] Visão: criação de dataset sintético + treino (a partir de `dataset_generator_m1` / `Producao-do-relatorio-da-SAE`)
+- [x] uXRCE-DDS — configuração da ponte (a partir de `uXRCE-configuration`) — **migrado** ✅
+- [x] Visão: criação de dataset sintético + treino (a partir de `dataset_generator_m1` / `Producao-do-relatorio-da-SAE`) — **migrado** ✅
 - [ ] Sistemas de coordenadas (NED/ENU) e árvores de comportamento (`py_trees`)
 
 > Achou documentação que não está neste mapa? Adicione aqui via Pull Request —

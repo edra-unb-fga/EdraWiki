@@ -22,6 +22,13 @@ Docker, ponte uXRCE-DDS).
     Ambiente completo no Windows via WSL2 + Docker Engine + GPU NVIDIA, com todas as
     armadilhas mapeadas (CRLF, GPU, QGC, submódulos).
 
+- :material-bridge:{ .lg } **[Ponte uXRCE-DDS (PX4 ↔ ROS 2)](uxrce-dds.md)**
+
+    ---
+
+    Instalar e rodar o Micro XRCE-DDS Agent — a ponte sem a qual os tópicos do PX4
+    não aparecem no ROS 2. Simulação (UDP) e hardware real (serial).
+
 </div>
 
 ## Começando do zero (onboarding)
