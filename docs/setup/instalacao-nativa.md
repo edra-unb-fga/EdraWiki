@@ -1,0 +1,198 @@
+# Instalação nativa (Linux)
+
+Passo a passo completo para configurar e executar o ambiente de simulação do drone
+**direto no Ubuntu** (sem Docker): PX4 Autopilot, Gazebo Harmonic e ROS 2 Humble.
+Serve como material de estudo desde a instalação até a resolução dos problemas
+críticos de sensores encontrados nos testes da Arena CBR2025.
+
+!!! info "Ambiente de referência"
+    Ubuntu 22.04 · PX4 **v1.16.0** · Gazebo Harmonic (gz-sim 8.11.0) · ROS 2 Humble.
+    Manter o PX4 na **v1.16.0** é importante para compatibilidade com os modelos da arena.
+
+Se você está começando do zero (instalar o Ubuntu, configurar Git/SSH), veja antes o
+tutorial de onboarding em
+[Configuracoes_Basicas_para_Controle](https://github.com/edra-unb-fga/Configuracoes_Basicas_para_Controle).
+
+---
+
+## 1. Instalação passo a passo
+
+### 1.1 ROS 2 Humble
+
+No Ubuntu 22.04, o Humble é a versão LTS recomendada. Depois de instalar o ROS 2,
+adicione as dependências de build:
+
+```bash
+sudo apt install python3-colcon-common-extensions python3-rosdep python3-vcstool
+sudo rosdep init
+rosdep update
+```
+
+### 1.2 PX4 Autopilot (v1.16.0)
+
+```bash
+git clone https://github.com/PX4/PX4-Autopilot.git --recursive
+cd ~/PX4-Autopilot
+git checkout v1.16.0
+bash ./Tools/setup/ubuntu.sh
+```
+
+!!! note
+    Reinicie o sistema após rodar o `ubuntu.sh`.
+
+### 1.3 Agente Micro-XRCE-DDS (a ponte PX4 ↔ ROS 2)
+
+O PX4 conversa com o ROS 2 pelo protocolo XRCE-DDS. Sem este agente, os tópicos do
+drone (sensores, estado, GPS) **não aparecem** no ROS 2.
+
+```bash
+# Clonar o repositório do agente
+git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
+cd Micro-XRCE-DDS-Agent
+
+# Criar pasta de build e compilar
+mkdir build && cd build
+cmake ..
+make
+sudo make install
+
+# Atualizar as bibliotecas do sistema
+sudo ldconfig /usr/local/lib/
+```
+
+!!! warning
+    Sem este agente, `ros2 topic list` não mostra nada vindo do firmware PX4.
+
+### 1.4 Workspace ROS 2 (mensagens px4_msgs)
+
+Necessário para o ROS 2 interpretar as mensagens do drone:
+
+```bash
+mkdir -p ~/px4_ros_com_ws/src
+git clone https://github.com/PX4/px4_msgs.git ~/px4_ros_com_ws/src/px4_msgs
+cd ~/px4_ros_com_ws && colcon build
+```
+
+### 1.5 QGroundControl (QGC)
+
+É a estação de controle de solo (GCS) usada para monitorar o drone, calibrar
+sensores e alterar parâmetros do PX4 em tempo real.
+
+```bash
+# 1. Dependências de rede e vídeo
+sudo apt install libpulse-dev libqt5gui5 libqt5widgets5 libqt5serialport5 -y
+
+# 2. Permissões de porta serial (IMPORTANTE)
+sudo usermod -a -G dialout $USER
+sudo apt-get remove modemmanager -y
+
+# 3. Baixar o AppImage oficial
+wget https://s3-us-west-2.amazonaws.com/qgroundcontrol/latest/QGroundControl.AppImage
+
+# 4. Permissão de execução e iniciar
+chmod +x QGroundControl.AppImage
+./QGroundControl.AppImage
+```
+
+!!! tip
+    Se aparecer "Time Jump Detected" ou dessincronização no ROS 2, feche o QGC para
+    reduzir a carga da CPU.
+
+### 1.6 Arena CBR2025
+
+Clone e configure os modelos da arena seguindo o repositório
+[Arenas_Gazebo](https://github.com/edra-unb-fga/Arenas_Gazebo) (branch `CBR2025`).
+Depois, a arena é aberta apontando o *resource path* tanto para a pasta da EDRA
+quanto para a do PX4:
+
+```bash
+GZ_SIM_RESOURCE_PATH=~/Arenas_Gazebo/gz/models:~/PX4-Autopilot/Tools/simulation/gz/models \
+  gz sim -r ~/Arenas_Gazebo/gz/worlds/default.sdf
+```
+
+!!! warning
+    Inicie o PX4 em modo *standalone* em outro terminal **antes** de rodar este
+    comando, senão o drone não será spawnado no mundo.
+
+---
+
+## 2. Fluxo de execução da simulação
+
+Abra **4 terminais** na ordem abaixo (e deixe o QGroundControl aberto):
+
+=== "Terminal 1 — Micro-XRCE Agent"
+
+    Inicia a ponte de comunicação.
+    ```bash
+    MicroXRCEAgent udp4 -p 8888
+    ```
+
+=== "Terminal 2 — PX4 standalone"
+
+    Inicia o firmware preparando-o para o Gazebo.
+    ```bash
+    cd ~/PX4-Autopilot
+    PX4_GZ_STANDALONE=1 PX4_GZ_WORLD=default make px4_sitl gz_x500
+    ```
+
+=== "Terminal 3 — Gazebo (arena)"
+
+    Carrega o mundo 3D da CBR2025.
+    ```bash
+    GZ_SIM_RESOURCE_PATH=~/Arenas_Gazebo/gz/models:~/PX4-Autopilot/Tools/simulation/gz/models \
+      gz sim -r ~/Arenas_Gazebo/gz/worlds/default.sdf
+    ```
+
+=== "Terminal 4 — Script de controle (ROS 2)"
+
+    Executa a lógica da missão.
+    ```bash
+    cd ~/ros2_ws && source install/setup.bash
+    ros2 run <seu_pacote> <seu_script>
+    ```
+
+!!! tip "Abra o QGroundControl"
+    Sem uma GCS conectada, o PX4 recusa o armamento com
+    `Preflight Fail: No connection to the ground control station` e o drone nunca decola.
+
+---
+
+## 3. Histórico de problemas e soluções
+
+Os problemas de sensores e ambiente encontrados nos testes da arena, com sintoma,
+causa e solução, estão documentados em detalhe no guia
+[Simulação CBR2025 — Arena + Missão 1](../simulacao/cbr2025-arena-missao1.md).
+
+Em resumo, os mais comuns:
+
+| Problema | Solução resumida |
+|----------|------------------|
+| **Arming denied** / "heading estimate invalid" (0 compass) | Manter PX4 v1.16.0 e devolver o sensor de magnetômetro ao `x500_base/model.sdf` |
+| **Mundo não encontrado** ("Unable to find file") | `rm -rf build/px4_sitl_default/rootfs` e recompilar |
+| **Drone não aparece** na cena | Iniciar os processos manualmente (standalone), não pelo `simulation-gazebo` |
+| **Time Jump Detected** (drone desarma) | Fechar o QGC (CPU saturada); aguardar "time sync converged" |
+| **`ros2 topic echo` mudo** | O PX4 publica em *best-effort* — use `--qos-reliability best_effort` |
+
+---
+
+## 4. Referência rápida de comandos
+
+Comandos no console `pxh>` do PX4:
+
+| Comando | Descrição |
+|---------|-----------|
+| `listener estimator_status 1` | Ver status do EKF2 / magnetômetro |
+| `listener vehicle_status 1` | Ver estado do drone |
+| `commander arm` / `disarm` | Armar / desarmar |
+| `commander takeoff` / `land` | Decolar / pousar |
+| `commander mode offboard` | Entrar em modo offboard |
+| `ekf2 stop` / `start` | Reiniciar o estimador de posição |
+
+Comandos no Ubuntu:
+
+| Comando | Descrição |
+|---------|-----------|
+| `pkill -9 -f gz` / `pkill -9 -f px4` | Matar processos para reiniciar limpo |
+| `gz topic -l \| grep mag` | Verificar se o magnetômetro publica |
+| `MicroXRCEAgent udp4 -p 8888` | Iniciar o agente da ponte |
+| `ros2 topic list \| grep fmu` | Ver os tópicos do PX4 no ROS 2 |
