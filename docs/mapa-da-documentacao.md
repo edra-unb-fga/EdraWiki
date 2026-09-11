@@ -124,7 +124,10 @@ Conforme o conteúdo for revisado e trazido para a EdraWiki, marcamos aqui:
 - [x] Controle Offboard — posição × velocidade (a partir de `Producao-do-relatorio-da-SAE`) — **migrado** ✅
 - [x] uXRCE-DDS — configuração da ponte (a partir de `uXRCE-configuration`) — **migrado** ✅
 - [x] Visão: criação de dataset sintético + treino (a partir de `dataset_generator_m1` / `Producao-do-relatorio-da-SAE`) — **migrado** ✅
-- [ ] Sistemas de coordenadas (NED/ENU) e árvores de comportamento (`py_trees`)
+- [x] Sistemas de coordenadas (NED/ENU) e árvores de comportamento (`py_trees`) — **migrado** ✅
+
+**Todos os itens prioritários migrados.** 🎉 Próximas frentes: aprofundar arquitetura PX4
+e failsafes, e trazer material de hardware/Raspberry.
 
 > Achou documentação que não está neste mapa? Adicione aqui via Pull Request —
 > veja [Como contribuir](contribuir.md).

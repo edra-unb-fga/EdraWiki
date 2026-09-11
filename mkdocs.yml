@@ -19,6 +19,8 @@ nav:
   - Controle:
       - Visão geral: 'controle/index.md'
       - Modo Offboard (posição × velocidade): 'controle/offboard.md'
+      - Sistemas de coordenadas (NED × ENU): 'controle/coordenadas.md'
+      - Árvores de comportamento (py_trees): 'controle/behavior-trees.md'
   - Visão Computacional:
       - Visão geral: 'visao/index.md'
       - Dataset sintético e treino (YOLO): 'visao/dataset-e-treino.md'

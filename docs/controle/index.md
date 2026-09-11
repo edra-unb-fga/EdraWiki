@@ -15,16 +15,26 @@ comportamento).
     diferença entre controlar por posição e por velocidade, e o erro clássico das
     flags `OffboardControlMode`.
 
+- :material-axis-arrow:{ .lg } **[Sistemas de coordenadas (NED × ENU)](coordenadas.md)**
+
+    ---
+
+    Os frames do PX4 (NED) e do ROS 2 (ENU), por que a altitude é negativa, e as
+    conversões entre eles.
+
+- :material-file-tree:{ .lg } **[Árvores de comportamento (py_trees)](behavior-trees.md)**
+
+    ---
+
+    Como as missões são estruturadas: Sequence, Selector, Parallel, blackboard, e o
+    cuidado de confirmar o estado real do drone.
+
 </div>
 
 ## Documentação existente (a migrar)
 
 O repositório [Producao-do-relatorio-da-SAE](https://github.com/edra-unb-fga/Producao-do-relatorio-da-SAE)
-tem um material aprofundado de Controle & Sistemas Embarcados:
-
-- **Arquitetura PX4** e hierarquias de controle / failsafes
-- **Funcionamento do Offboard** (posição e velocidade)
-- **Sistemas de coordenadas** (NED, ENU, frames)
-- **Árvores de comportamento** com `py_trees`
+tem material aprofundado de Controle & Sistemas Embarcados, incluindo **arquitetura PX4**
+e **hierarquias de controle / failsafes**.
 
 > Veja o [Mapa da Documentação](../mapa-da-documentacao.md) para a lista completa.
