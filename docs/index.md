@@ -50,6 +50,13 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
 
     Como preparar o ambiente: PX4, ROS 2, Gazebo, Docker e a ponte uXRCE-DDS.
 
+- :material-drone:{ .lg } **[Controle e Offboard](controle/index.md)**
+
+    ---
+
+    Controle externo do PX4 via ROS 2, modo Offboard e a diferença entre controlar
+    por posição e por velocidade.
+
 - :material-eye:{ .lg } **[Visão Computacional](visao/index.md)**
 
     ---

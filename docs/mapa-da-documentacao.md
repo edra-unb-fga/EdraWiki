@@ -120,10 +120,11 @@ Conforme o conteúdo for revisado e trazido para a EdraWiki, marcamos aqui:
 - [x] Instalação nativa (Linux) — ROS 2, PX4, agente XRCE, workspace, QGC, arena — **migrado** ✅
 - [x] Docker no Windows (WSL2) — **migrado** ✅
 - [x] Inicialização desacoplada (fix timeout do gz_bridge) — **migrado** ✅
-- [ ] Lista de erros comuns (a partir de `gazebo-px4/docs/LISTA_DE_ERROS.md`)
-- [ ] Controle Offboard — posição × velocidade (a partir de `Producao-do-relatorio-da-SAE`)
-- [ ] uXRCE-DDS — configuração da ponte
-- [ ] Visão: criação de dataset sintético + treino
+- [x] Lista de erros comuns (a partir de `gazebo-px4/docs/LISTA_DE_ERROS.md`) — **migrado** ✅
+- [x] Controle Offboard — posição × velocidade (a partir de `Producao-do-relatorio-da-SAE`) — **migrado** ✅
+- [ ] uXRCE-DDS — configuração da ponte (a partir de `uXRCE-configuration`)
+- [ ] Visão: criação de dataset sintético + treino (a partir de `dataset_generator_m1` / `Producao-do-relatorio-da-SAE`)
+- [ ] Sistemas de coordenadas (NED/ENU) e árvores de comportamento (`py_trees`)
 
 > Achou documentação que não está neste mapa? Adicione aqui via Pull Request —
 > veja [Como contribuir](contribuir.md).
