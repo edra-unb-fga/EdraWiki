@@ -26,27 +26,43 @@
 /* ===== HERO da homepage ===== */
 .edra-hero {
   margin: -1.2rem -0.8rem 2rem;
-  padding: 1.5rem 1.5rem 2.4rem;
-  min-height: 560px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;   /* texto na parte de baixo */
+  padding: 4.5rem 1.5rem 4rem;
   text-align: center;
   color: #fff;
   background:
-    linear-gradient(180deg,
-      rgba(23,28,52,.25) 0%,
-      rgba(23,28,52,.05) 30%,
-      rgba(19,101,40,.35) 58%,
-      rgba(19,101,40,.82) 82%,
-      rgba(15,80,32,.94) 100%),
-    url("../img/equipe-capa.jpg");
-  background-size: cover;
-  background-position: center 18%;   /* rostos aparecem em cima */
+    radial-gradient(1200px 400px at 80% -10%, rgba(74,159,212,.55), transparent 60%),
+    linear-gradient(120deg, var(--edra-blue-d) 0%, var(--edra-blue) 45%, var(--edra-green-d) 100%);
   border-radius: 0 0 24px 24px;
   position: relative;
   overflow: hidden;
 }
+.edra-hero::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,.10) 1px, transparent 1px);
+  background-size: 22px 22px;
+  opacity: .5;
+  pointer-events: none;
+}
+
+/* ===== Foto da equipe (showcase abaixo do hero) ===== */
+.edra-team {
+  margin: 0 auto 2.5rem;
+  max-width: 880px;
+  text-align: center;
+}
+.edra-team img {
+  width: 100%;
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.22);
+  display: block;
+}
+.edra-team figcaption {
+  margin-top: .7rem;
+  font-size: .9rem;
+  color: var(--md-default-fg-color--light);
+}
+[data-md-color-scheme="slate"] .edra-team img { box-shadow: 0 12px 40px rgba(0,0,0,.5); }
 .edra-hero img.edra-hero__logo {
   width: 118px; height: 118px;
   border-radius: 50%;

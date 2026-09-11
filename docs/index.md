@@ -5,6 +5,7 @@ hide:
 ---
 
 <div class="edra-hero" markdown>
+<img src="img/logo-edra.png" alt="EDRA" class="edra-hero__logo">
 
 # EdraWiki
 
@@ -19,6 +20,11 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
 [Como contribuir](contribuir.md){ .md-button }
 </div>
 </div>
+
+<figure class="edra-team" markdown>
+![A equipe EDRA](img/equipe-capa.jpg)
+<figcaption>Equipe de Robótica Aérea — EDRA / UnB</figcaption>
+</figure>
 
 ## Por onde começar
 
