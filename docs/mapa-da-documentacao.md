@@ -117,12 +117,13 @@ precisar caçar repo por repo.
 Conforme o conteúdo for revisado e trazido para a EdraWiki, marcamos aqui:
 
 - [x] Simulação CBR2025 (Arena + Missão 1) — **migrado** ✅
-- [ ] Setup / Instalação (a partir de `Configuracoes_Basicas_para_Controle` + `simulation-setup`)
+- [x] Instalação nativa (Linux) — ROS 2, PX4, agente XRCE, workspace, QGC, arena — **migrado** ✅
+- [x] Docker no Windows (WSL2) — **migrado** ✅
+- [x] Inicialização desacoplada (fix timeout do gz_bridge) — **migrado** ✅
 - [ ] Lista de erros comuns (a partir de `gazebo-px4/docs/LISTA_DE_ERROS.md`)
 - [ ] Controle Offboard — posição × velocidade (a partir de `Producao-do-relatorio-da-SAE`)
 - [ ] uXRCE-DDS — configuração da ponte
 - [ ] Visão: criação de dataset sintético + treino
-- [ ] Guias do Rian e do Marcelo (estão no grupo do WhatsApp — trazer para cá)
 
 > Achou documentação que não está neste mapa? Adicione aqui via Pull Request —
 > veja [Como contribuir](contribuir.md).
