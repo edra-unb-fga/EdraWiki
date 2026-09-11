@@ -5,7 +5,6 @@ hide:
 ---
 
 <div class="edra-hero" markdown>
-<img src="img/logo-edra.png" alt="EDRA" class="edra-hero__logo">
 
 # EdraWiki
 
