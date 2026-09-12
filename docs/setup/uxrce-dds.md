@@ -8,6 +8,13 @@ ecossistema ROS 2. Sem o agente rodando, os tópicos do drone (`/fmu/in/*`, `/fm
     Baseado em [uXRCE-configuration](https://github.com/edra-unb-fga/uXRCE-configuration).
     Referência oficial: [PX4 uXRCE-DDS Middleware](https://docs.px4.io/main/en/middleware/uxrce_dds.html).
 
+!!! abstract "Você provavelmente já fez isso"
+    A instalação do agente já está incluída em
+    [Instalação nativa](instalacao-nativa.md#13-agente-micro-xrce-dds-a-ponte-px4-ros-2)
+    e em [Docker no Windows](docker-windows.md). Esta página é **referência** — volte
+    aqui se precisar reinstalar, entender melhor a ponte, ou configurar com hardware
+    real (serial). Não é um passo extra a fazer depois desses guias.
+
 ---
 
 ## Instalação (standalone, a partir do código-fonte)

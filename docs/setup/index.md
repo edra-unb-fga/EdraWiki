@@ -26,8 +26,9 @@ Docker, ponte uXRCE-DDS).
 
     ---
 
-    Instalar e rodar o Micro XRCE-DDS Agent — a ponte sem a qual os tópicos do PX4
-    não aparecem no ROS 2. Simulação (UDP) e hardware real (serial).
+    Referência sobre o Micro XRCE-DDS Agent (já instalado nos dois guias acima).
+    Consulte aqui para reinstalar, entender a ponte a fundo, ou configurar com
+    hardware real (serial).
 
 </div>
 
