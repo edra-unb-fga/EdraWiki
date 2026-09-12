@@ -1,0 +1,2333 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hub central de documentação técnica, guias e tutoriais da EDRA (UnB)">
+      
+      
+      
+      
+        <link rel="prev" href="../instalacao-nativa/">
+      
+      
+        <link rel="next" href="../uxrce-dds/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo-edra.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Docker no Windows (WSL2) - EdraWiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#px4-ros-2-gazebo-no-windows-dockerwsl2" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="EdraWiki" class="md-header__button md-logo" aria-label="EdraWiki" data-md-component="logo">
+      
+  <img src="../../img/logo-edra.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EdraWiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker no Windows (WSL2)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/edra-unb-fga/EdraWiki" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    EdraWiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../primeiros-passos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Primeiros passos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../mapa-da-documentacao/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Mapa da Documentação
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup e Instalação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../simulacao/cbr2025-arena-missao1/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Simulação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../controle/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Controle
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../visao/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Computacional
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hardware/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Hardware / Raspberry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contribuir/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Como contribuir
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EdraWiki" class="md-nav__button md-logo" aria-label="EdraWiki" data-md-component="logo">
+      
+  <img src="../../img/logo-edra.png" alt="logo">
+
+    </a>
+    EdraWiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/edra-unb-fga/EdraWiki" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    EdraWiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../primeiros-passos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeiros passos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mapa-da-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup e Instalação
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup e Instalação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../instalacao-nativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalação nativa (Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker no Windows (WSL2)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker no Windows (WSL2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-nao-usar-o-docker-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que não usar o Docker Desktop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-ubuntu-2204-no-wsl2-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1 — Ubuntu 22.04 no WSL2 (~10 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-docker-engine-dentro-da-distro-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2 — Docker Engine dentro da distro (~5 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-gpu-nvidia-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3 — GPU NVIDIA (~5 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-4-projeto-e-build-da-imagem-2h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4 — Projeto e build da imagem (~2h)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4 — Projeto e build da imagem (~2h)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-clonar-dentro-do-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Clonar dentro do WSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-correcoes-necessarias-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Correções necessárias no repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-configuracao-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Configuração local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-override-especifico-do-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Override específico do WSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Build
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-5-qgroundcontrol-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5 — QGroundControl (~15 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5 — QGroundControl (~15 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-use-a-linha-v44x-nao-a-v5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Use a linha v4.4.x, não a v5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Launcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-6-workspace-da-missao-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 6 — Workspace da missão (~10 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rodar-a-simulacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rodar a simulação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rodar a simulação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordem-de-abertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordem de abertura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conferir-que-esta-tudo-vivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferir que está tudo vivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#armadilhas-sintomas-e-causas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Armadilhas — sintomas e causas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uxrce-dds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ponte uXRCE-DDS (PX4 ↔ ROS 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulação
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Simulação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulacao/cbr2025-arena-missao1/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CBR2025 — Arena + Missão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulacao/inicializacao-desacoplada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicialização desacoplada (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulacao/erros-comuns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lista de erros comuns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../controle/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controle
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Controle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/offboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modo Offboard (posição × velocidade)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de coordenadas (NED × ENU)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/behavior-trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Árvores de comportamento (py_trees)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../visao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Computacional
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Computacional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/dataset-e-treino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset sintético e treino (YOLO)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware / Raspberry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware / Raspberry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribuir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como contribuir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-nao-usar-o-docker-desktop" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que não usar o Docker Desktop
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-1-ubuntu-2204-no-wsl2-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 1 — Ubuntu 22.04 no WSL2 (~10 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-2-docker-engine-dentro-da-distro-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 2 — Docker Engine dentro da distro (~5 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-3-gpu-nvidia-5-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 3 — GPU NVIDIA (~5 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-4-projeto-e-build-da-imagem-2h" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 4 — Projeto e build da imagem (~2h)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 4 — Projeto e build da imagem (~2h)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41-clonar-dentro-do-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.1 Clonar dentro do WSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42-correcoes-necessarias-no-repositorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.2 Correções necessárias no repositório
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43-configuracao-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.3 Configuração local
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#44-override-especifico-do-wsl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.4 Override específico do WSL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#45-build" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4.5 Build
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-5-qgroundcontrol-15-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 5 — QGroundControl (~15 min)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Fase 5 — QGroundControl (~15 min)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-use-a-linha-v44x-nao-a-v5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.1 Use a linha v4.4.x, não a v5
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.2 Dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-launcher" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5.3 Launcher
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fase-6-workspace-da-missao-10-min" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fase 6 — Workspace da missão (~10 min)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rodar-a-simulacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rodar a simulação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rodar a simulação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ordem-de-abertura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ordem de abertura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conferir-que-esta-tudo-vivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conferir que está tudo vivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#armadilhas-sintomas-e-causas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Armadilhas — sintomas e causas
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="px4-ros-2-gazebo-no-windows-dockerwsl2">PX4 + ROS 2 + Gazebo no Windows (Docker/WSL2)<a class="headerlink" href="#px4-ros-2-gazebo-no-windows-dockerwsl2" title="Permanent link">&para;</a></h1>
+<p>Instalação completa a partir do zero, via <strong>WSL2</strong>. O <code>docker-compose.yaml</code> do projeto
+<a href="https://github.com/edra-unb-fga/docker-configuration">docker-configuration</a> foi escrito
+para máquinas Linux; este guia mostra como reproduzir fielmente esse ambiente no
+Windows, com as armadilhas já mapeadas.</p>
+<div class="admonition info">
+<p class="admonition-title">Ambiente de referência</p>
+<p>Validado em <strong>Windows 11</strong> · GPU <strong>NVIDIA RTX 4050</strong> · distro <strong>Ubuntu 22.04</strong> ·
+tempo total <strong>~2h30</strong> · disco <strong>~30 GB</strong>.</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title">Onde este guia se encaixa</p>
+<p>Este é um dos <strong>dois</strong> caminhos possíveis para montar o ambiente (veja
+<a href="../../primeiros-passos/">Primeiros passos</a>). Use este guia <strong>se seu sistema é
+Windows</strong>. Se seu sistema é Linux, use
+<a href="../instalacao-nativa/">Instalação nativa (Linux)</a> em vez deste — os dois fazem a
+mesma coisa por caminhos diferentes, não é preciso seguir os dois.</p>
+</div>
+<p><strong>Percurso:</strong> WSL2 → Docker Engine → GPU NVIDIA → projeto e build → QGroundControl →
+workspace da missão → rodar → armadilhas.</p>
+<hr />
+<h2 id="por-que-nao-usar-o-docker-desktop">Por que não usar o Docker Desktop<a class="headerlink" href="#por-que-nao-usar-o-docker-desktop" title="Permanent link">&para;</a></h2>
+<p>O <code>docker-compose.yaml</code> do projeto monta <code>/etc/passwd</code>, <code>/etc/group</code>, <code>/etc/shadow</code>,
+<code>/home</code> e <code>/tmp/.X11-unix</code> do host, e usa <code>network_mode: host</code>. Isso pressupõe um host
+Linux real.</p>
+<p>No Docker Desktop para Windows os containers rodam dentro da VM <code>docker-desktop</code>, não na
+sua máquina — o Docker criaria diretórios vazios nesses caminhos e quebraria a resolução
+de usuários, e o <code>network_mode: host</code> se ligaria à rede da VM, não à sua.</p>
+<p>A solução é instalar o <strong>Docker Engine nativo dentro de uma distro Ubuntu no WSL2</strong>.
+Assim todos os caminhos, a rede e o X11 se comportam como num Ubuntu de verdade.</p>
+<div class="admonition tip">
+<p class="admonition-title">Bônus do WSLg</p>
+<p>O WSLg já fornece <code>DISPLAY=:0</code> e o socket <code>/tmp/.X11-unix/X0</code>. Você <strong>não</strong> precisa
+de VcXsrv, e o <code>xhost local:docker</code> que aparece no README é desnecessário aqui.</p>
+</div>
+<hr />
+<h2 id="fase-1-ubuntu-2204-no-wsl2-10-min">Fase 1 — Ubuntu 22.04 no WSL2 (~10 min)<a class="headerlink" href="#fase-1-ubuntu-2204-no-wsl2-10-min" title="Permanent link">&para;</a></h2>
+<p>No <strong>PowerShell</strong> do Windows:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">wsl</span> <span class="p">-</span><span class="n">-install</span> <span class="n">Ubuntu</span><span class="p">-</span><span class="n">22</span><span class="p">.</span><span class="n">04</span>
+</code></pre></div>
+<p>Na primeira abertura ele pede um nome de usuário e senha do Linux (use de preferência o
+mesmo nome do seu usuário do Windows, para reduzir confusão):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">wsl</span> <span class="n">-d</span> <span class="n">Ubuntu</span><span class="p">-</span><span class="n">22</span><span class="p">.</span><span class="n">04</span>
+</code></pre></div>
+<p>Confirme que o <code>systemd</code> está ativo — o Docker depende dele:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>cat<span class="w"> </span>/etc/wsl.conf
+</code></pre></div>
+<p>Deve conter <code>[boot]</code> com <code>systemd=true</code>. Se não contiver, adicione:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/wsl.conf<span class="w"> </span>&gt;<span class="w"> </span>/dev/null<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="s">[boot]</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="s">systemd=true</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="s">EOF</span>
+</code></pre></div>
+<p>E reinicie a distro pelo Windows com <code>wsl --shutdown</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A versão 22.04 não é arbitrária: casa com a base do Dockerfile e evita
+incompatibilidades de <code>glibc</code> no QGroundControl (Fase 5).</p>
+</div>
+<hr />
+<h2 id="fase-2-docker-engine-dentro-da-distro-5-min">Fase 2 — Docker Engine dentro da distro (~5 min)<a class="headerlink" href="#fase-2-docker-engine-dentro-da-distro-5-min" title="Permanent link">&para;</a></h2>
+<p>Tudo abaixo roda <strong>dentro</strong> do Ubuntu do WSL:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># repositório oficial da Docker</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>ca-certificates<span class="w"> </span>curl<span class="w"> </span>gnupg<span class="w"> </span>lsb-release<span class="w"> </span>git
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/keyrings/docker.asc<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.asc
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] \</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="s2">https://download.docker.com/linux/ubuntu jammy stable"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="c1"># engine + plugin do compose</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="w">  </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
+<a id="__codelineno-4-16" name="__codelineno-4-16" href="#__codelineno-4-16"></a>
+<a id="__codelineno-4-17" name="__codelineno-4-17" href="#__codelineno-4-17"></a><span class="c1"># rodar docker sem sudo</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18" href="#__codelineno-4-18"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>docker<span class="w"> </span><span class="nv">$USER</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19" href="#__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20" href="#__codelineno-4-20"></a><span class="c1"># subir o serviço</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21" href="#__codelineno-4-21"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>--now<span class="w"> </span>docker
+</code></pre></div>
+<p>A mudança de grupo só vale em sessões novas. Feche o terminal e abra outro, então confirme:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>version<span class="w"> </span>--format<span class="w"> </span><span class="s1">'cliente={{.Client.Version}} servidor={{.Server.Version}}'</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Docker Desktop pode continuar instalado</p>
+<p>Ele não atrapalha, desde que você <strong>não</strong> ative a integração WSL para esta distro.</p>
+</div>
+<hr />
+<h2 id="fase-3-gpu-nvidia-5-min">Fase 3 — GPU NVIDIA (~5 min)<a class="headerlink" href="#fase-3-gpu-nvidia-5-min" title="Permanent link">&para;</a></h2>
+<p>Pule esta fase se sua máquina não tem GPU NVIDIA dedicada — mas note que sem ela o Gazebo
+roda em renderização por software e fica a poucos quadros por segundo.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g'</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-container-toolkit
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>sudo<span class="w"> </span>nvidia-ctk<span class="w"> </span>runtime<span class="w"> </span>configure<span class="w"> </span>--runtime<span class="o">=</span>docker
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+</code></pre></div>
+<p>Valide <strong>antes</strong> de gastar 2 horas de build:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>docker<span class="w"> </span>run<span class="w"> </span>--rm<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>nvidia/cuda:12.4.1-base-ubuntu22.04<span class="w"> </span>nvidia-smi
+</code></pre></div>
+<p>A tabela do <code>nvidia-smi</code> com o nome da sua GPU deve aparecer.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>O driver NVIDIA fica no <strong>Windows</strong>. Não instale driver NVIDIA dentro do WSL: isso
+quebra a passagem de GPU.</p>
+</div>
+<hr />
+<h2 id="fase-4-projeto-e-build-da-imagem-2h">Fase 4 — Projeto e build da imagem (~2h)<a class="headerlink" href="#fase-4-projeto-e-build-da-imagem-2h" title="Permanent link">&para;</a></h2>
+<h3 id="41-clonar-dentro-do-wsl">4.1 Clonar dentro do WSL<a class="headerlink" href="#41-clonar-dentro-do-wsl" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">Armadilha · CRLF</p>
+<p>Clone <strong>dentro do sistema de arquivos do WSL</strong>, nunca em <code>/mnt/c/...</code>. Dois motivos:
+build em <code>/mnt/c</code> é drasticamente mais lento, e se o repositório vier com quebras de
+linha CRLF (Git for Windows com <code>core.autocrlf=true</code>), o entrypoint vira <code>#!/bin/bash\r</code>
+e o container morre com <em>bad interpreter</em> — sintoma que só aparece <strong>depois</strong> das 2h de build.</p>
+</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/edra-unb-fga/docker-configuration.git
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="nb">cd</span><span class="w"> </span>docker-configuration
+</code></pre></div>
+<p>Se você copiou de uma pasta do Windows em vez de clonar, normalize antes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>sed<span class="w"> </span>-i<span class="w"> </span><span class="s1">'s/\r$//'</span><span class="w"> </span>ros_entrypoint.sh<span class="w"> </span>start.sh<span class="w"> </span>humble-px4.Dockerfile
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>chmod<span class="w"> </span>+x<span class="w"> </span>ros_entrypoint.sh<span class="w"> </span>start.sh
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>git<span class="w"> </span>config<span class="w"> </span>core.autocrlf<span class="w"> </span><span class="nb">false</span>
+</code></pre></div>
+<h3 id="42-correcoes-necessarias-no-repositorio">4.2 Correções necessárias no repositório<a class="headerlink" href="#42-correcoes-necessarias-no-repositorio" title="Permanent link">&para;</a></h3>
+<p>Verifique se já foram corrigidos antes de aplicar:</p>
+<table>
+<thead>
+<tr>
+<th>Arquivo</th>
+<th>Problema</th>
+<th>Correção</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>humble-px4.Dockerfile</code></td>
+<td><code>COPY ../ros_entrypoint.sh /</code> sai do build context</td>
+<td><code>COPY ros_entrypoint.sh /</code></td>
+</tr>
+<tr>
+<td><code>.env.example</code></td>
+<td>define <code>HOST_USERNAME</code>, mas o compose lê <code>${HOST_USER}</code></td>
+<td>usar <code>HOST_USER=...</code></td>
+</tr>
+<tr>
+<td><code>humble-px4.Dockerfile</code></td>
+<td><code>docker exec</code> não passa pelo ENTRYPOINT, então o ROS 2 não fica no PATH</td>
+<td>acrescentar a linha abaixo</td>
+</tr>
+</tbody>
+</table>
+<p>No fim do <code>Dockerfile</code>, logo após o <code>chmod</code> do entrypoint:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"source /opt/ros/</span><span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span><span class="s2">/setup.bash"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/root/.bashrc
+</code></pre></div>
+<h3 id="43-configuracao-local">4.3 Configuração local<a class="headerlink" href="#43-configuracao-local" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="nb">echo</span><span class="w"> </span><span class="s2">"HOST_USER=</span><span class="nv">$USER</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>.env
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/Volumes
+</code></pre></div>
+<h3 id="44-override-especifico-do-wsl">4.4 Override específico do WSL<a class="headerlink" href="#44-override-especifico-do-wsl" title="Permanent link">&para;</a></h3>
+<p>Este arquivo não existe no repositório: crie-o. Ele garante OpenGL acelerado por GPU:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>docker-compose.wsl.yaml<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="s"># Override para WSL2 — não usar em hosts Linux nativos.</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="s">services:</span>
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="s">  ros-px4-humble:</span>
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="s">    restart: unless-stopped</span>
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a><span class="s">    volumes:</span>
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="s">      - /usr/lib/wsl:/usr/lib/wsl:ro</span>
+<a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="s">    environment:</span>
+<a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="s">      - LD_LIBRARY_PATH=/usr/lib/wsl/lib</span>
+<a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="s">      - MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA</span>
+<a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="s">EOF</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">Por que isso importa</p>
+<p>O container recebe apenas <code>libdxcore.so</code> do toolkit da NVIDIA. Montando <code>/usr/lib/wsl</code>
+ele passa a enxergar <code>libd3d12.so</code>, e o Mesa usa o driver Gallium <code>d3d12</code> para
+renderizar na GPU. Sem isso, o Gazebo cai em <code>llvmpipe</code> (software).</p>
+</div>
+<h3 id="45-build">4.5 Build<a class="headerlink" href="#45-build" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>compose<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">  </span>-f<span class="w"> </span>docker-compose.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">  </span>-f<span class="w"> </span>docker-compose.nvidia.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span>-f<span class="w"> </span>docker-compose.wsl.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">  </span>up<span class="w"> </span>-d<span class="w"> </span>--build
+</code></pre></div>
+<p>O build leva de <strong>1h30 a 2h</strong> e a imagem final ocupa cerca de <strong>25 GB</strong>. Confirme o espaço
+antes de começar.</p>
+<p>Verificar o resultado:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ros-px4-humble<span class="w"> </span>nvidia-smi<span class="w"> </span>--query-gpu<span class="o">=</span>name<span class="w"> </span>--format<span class="o">=</span>csv,noheader
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>ros-px4-humble<span class="w"> </span>bash<span class="w"> </span>-c<span class="w"> </span><span class="s1">'apt-get install -y -qq mesa-utils &amp;&amp; glxinfo -B | grep -E "renderer|Accelerated"'</span>
+</code></pre></div>
+<p>O resultado correto é <code>OpenGL renderer string: D3D12 (NVIDIA ...)</code> e <code>Accelerated: yes</code>.</p>
+<div class="admonition danger">
+<p class="admonition-title">Armadilha · start.sh</p>
+<p>Não use o <code>./start.sh</code> do repositório. Ele só usa dois dos três arquivos de compose,
+então você perde a aceleração gráfica sem perceber.</p>
+</div>
+<hr />
+<h2 id="fase-5-qgroundcontrol-15-min">Fase 5 — QGroundControl (~15 min)<a class="headerlink" href="#fase-5-qgroundcontrol-15-min" title="Permanent link">&para;</a></h2>
+<p>O QGC é <strong>obrigatório</strong>: sem uma estação de controle conectada, o PX4 recusa o armamento
+com <code>Preflight Fail: No connection to the GCS</code> e o drone nunca decola.</p>
+<div class="admonition danger">
+<p class="admonition-title">Armadilha · instale no WSL, não no Windows</p>
+<p>O PX4 loga <code>MAVLink only on localhost</code>, ou seja, transmite para <code>127.0.0.1:14550</code>.
+Como o container usa <code>network_mode: host</code>, esse loopback é o do Ubuntu do WSL. Um QGC
+rodando no Windows simplesmente não recebe esses pacotes.</p>
+</div>
+<h3 id="51-use-a-linha-v44x-nao-a-v5">5.1 Use a linha v4.4.x, não a v5<a class="headerlink" href="#51-use-a-linha-v44x-nao-a-v5" title="Permanent link">&para;</a></h3>
+<p>As builds v5 exigem <code>GLIBC 2.38</code> e o Ubuntu 22.04 tem 2.35. A v4.4.5 é compilada para 22.04:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>curl<span class="w"> </span>-fL<span class="w"> </span>-o<span class="w"> </span>QGroundControl.AppImage<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="w">  </span>https://github.com/mavlink/qgroundcontrol/releases/download/v4.4.5/QGroundControl.AppImage
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>chmod<span class="w"> </span>+x<span class="w"> </span>QGroundControl.AppImage
+</code></pre></div>
+<h3 id="52-dependencias">5.2 Dependências<a class="headerlink" href="#52-dependencias" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span>libfuse2<span class="w"> </span>libsdl2-2.0-0<span class="w"> </span>libpulse0<span class="w"> </span>libpulse-mainloop-glib0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">  </span>libgstreamer1.0-0<span class="w"> </span>libgstreamer-gl1.0-0<span class="w"> </span>gstreamer1.0-gl<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">  </span>gstreamer1.0-plugins-base<span class="w"> </span>gstreamer1.0-plugins-good<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">  </span>gstreamer1.0-plugins-bad<span class="w"> </span>gstreamer1.0-libav<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">  </span>libxcb-shape0<span class="w"> </span>libxcb-cursor0<span class="w"> </span>libxcb-icccm4<span class="w"> </span>libxcb-image0<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">  </span>libxcb-keysyms1<span class="w"> </span>libxcb-render-util0<span class="w"> </span>libxcb-xinerama0<span class="w"> </span>libxkbcommon-x11-0
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>sudo<span class="w"> </span>usermod<span class="w"> </span>-aG<span class="w"> </span>dialout<span class="w"> </span><span class="nv">$USER</span>
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">O detalhe que trava todo mundo</p>
+<p>O <code>libxcb-shape0</code> é o mais importante da lista. Sem ele o plugin <code>xcb</code> fica invisível e
+o QGC aborta dizendo que <em>nenhum plugin de plataforma pôde ser inicializado</em>, mesmo
+estando presente no bundle.</p>
+</div>
+<h3 id="53-launcher">5.3 Launcher<a class="headerlink" href="#53-launcher" title="Permanent link">&para;</a></h3>
+<p>Crie um atalho para forçar o plugin <code>xcb</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/qgc.sh<span class="w"> </span><span class="s">&lt;&lt;'EOF'</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="s">#!/bin/bash</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="s">export DISPLAY=:0</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="s">export XDG_RUNTIME_DIR=/run/user/$(id -u)</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="s">export QT_QPA_PLATFORM=xcb</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="s">exec "$HOME/QGroundControl.AppImage" "$@"</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="s">EOF</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>chmod<span class="w"> </span>+x<span class="w"> </span>~/qgc.sh
+</code></pre></div>
+<p>A partir do Windows, abra com uma linha: <code>wsl -d Ubuntu-22.04 -- ~/qgc.sh</code></p>
+<hr />
+<h2 id="fase-6-workspace-da-missao-10-min">Fase 6 — Workspace da missão (~10 min)<a class="headerlink" href="#fase-6-workspace-da-missao-10-min" title="Permanent link">&para;</a></h2>
+<p>O <a href="https://github.com/edra-unb-fga/Workspace_Template">Workspace_Template</a> é privado.
+Configure o git do WSL para reaproveitar o Git Credential Manager do Windows (assim o
+clone por HTTPS autentica sem chave SSH):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.helper<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="w">  </span><span class="s1">'/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe'</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>credential.<span class="s1">'https://github.com'</span>.provider<span class="w"> </span>github
+</code></pre></div>
+<p>Clone no home do WSL, <strong>não</strong> dentro do container:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/edra-unb-fga/Workspace_Template.git
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="nb">cd</span><span class="w"> </span>Workspace_Template
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Armadilha · submódulo</p>
+<p>O <code>src/px4_msgs</code> é um submódulo e o README não menciona isso. Sem o
+<code>git submodule update --init --recursive</code>, o <code>colcon build</code> falha por falta das
+mensagens do PX4.</p>
+</div>
+<p>Como o compose monta <code>/home</code> inteiro, o workspace aparece dentro do container no mesmo
+caminho. Compile <strong>de dentro do container</strong>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span><span class="nb">exec</span><span class="w"> </span>-it<span class="w"> </span>ros-px4-humble<span class="w"> </span>bash
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a><span class="nb">cd</span><span class="w"> </span>/home/SEU_USUARIO/Workspace_Template
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>colcon<span class="w"> </span>build
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Armadilha · compile com a simulação desligada</p>
+<p>O <code>colcon build</code> do <code>px4_msgs</code> satura todos os núcleos. Se o Gazebo estiver no ar, o
+PX4 perde o sincronismo e derruba a simulação com <code>ERROR [vehicle_imu] timestamp error</code>.
+Compile primeiro, simule depois.</p>
+</div>
+<hr />
+<h2 id="rodar-a-simulacao">Rodar a simulação<a class="headerlink" href="#rodar-a-simulacao" title="Permanent link">&para;</a></h2>
+<p>O que se repete e o que não:</p>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>Frequência</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>docker compose ... up -d</code></td>
+<td><strong>Uma vez só.</strong> O container fica no ar até você derrubá-lo.</td>
+</tr>
+<tr>
+<td><code>docker exec -it ros-px4-humble bash</code></td>
+<td><strong>Em cada terminal</strong> que precise de um shell no container.</td>
+</tr>
+</tbody>
+</table>
+<p>Atalho de uma linha, direto do Windows: <code>wsl -d Ubuntu-22.04 -- docker exec -it ros-px4-humble bash</code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Você sabe que está <em>dentro</em> do container porque o prompt vira <code>root@...:/edra#</code>. Se
+ainda mostrar <code>/mnt/c/...</code>, você está no Ubuntu do WSL.</p>
+</div>
+<h3 id="ordem-de-abertura">Ordem de abertura<a class="headerlink" href="#ordem-de-abertura" title="Permanent link">&para;</a></h3>
+<p>Abra o QGroundControl <strong>antes</strong> de rodar a missão.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:4"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Terminal 1 — PX4 + Gazebo</label><label for="__tabbed_1_2">Terminal 2 — ponte MicroXRCE</label><label for="__tabbed_1_3">Terminal 3 — QGroundControl (no Windows)</label><label for="__tabbed_1_4">Terminal 4 — missão ROS 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="nb">cd</span><span class="w"> </span>/edra/PX4-Autopilot
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500_mono_cam_down
+</code></pre></div>
+<div class="admonition danger">
+<p class="admonition-title">Armadilha · caminho do PX4</p>
+<p>O README diz <code>cd ~/PX4-Autopilot</code>, que <strong>não existe</strong>. O WORKDIR da imagem é
+<code>/edra</code>, e dentro do container você é <code>root</code> — então <code>~</code> aponta para <code>/root</code>. Use
+sempre o caminho absoluto <code>/edra/PX4-Autopilot</code>.</p>
+</div>
+<p>Este terminal precisa ser interativo: é nele que aparece o console <code>pxh&gt;</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>MicroXRCEAgent<span class="w"> </span>udp4<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>wsl<span class="w"> </span>-d<span class="w"> </span>Ubuntu-22.04<span class="w"> </span>--<span class="w"> </span>~/qgc.sh
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="nb">cd</span><span class="w"> </span>/home/SEU_USUARIO/Workspace_Template
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a>ros2<span class="w"> </span>run<span class="w"> </span>missao_template<span class="w"> </span>main
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="conferir-que-esta-tudo-vivo">Conferir que está tudo vivo<a class="headerlink" href="#conferir-que-esta-tudo-vivo" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="c1"># de dentro do container</span>
+<a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a>ros2<span class="w"> </span>topic<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>/fmu/out<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l<span class="w">     </span><span class="c1"># esperado: dezenas</span>
+<a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>ros2<span class="w"> </span>topic<span class="w"> </span><span class="nb">echo</span><span class="w"> </span>/fmu/out/vehicle_status_v4<span class="w"> </span>--qos-reliability<span class="w"> </span>best_effort
+</code></pre></div>
+<div class="admonition note">
+<p class="admonition-title">A pegadinha mais comum do PX4 com ROS 2</p>
+<p>O PX4 publica em <strong>best-effort</strong> e o <code>ros2 topic echo</code> assume <strong>reliable</strong> por padrão.
+Sem a flag <code>--qos-reliability best_effort</code>, o comando fica mudo mesmo com a telemetria
+perfeita, e você perde tempo caçando um problema que não existe.</p>
+</div>
+<hr />
+<h2 id="armadilhas-sintomas-e-causas">Armadilhas — sintomas e causas<a class="headerlink" href="#armadilhas-sintomas-e-causas" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Sintoma</th>
+<th>Causa e correção</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>container is not running</code></td>
+<td>O daemon do WSL pode ser parado pelo ciclo de energia do Windows. Com <code>restart: unless-stopped</code> ele volta sozinho; senão, refaça o <code>up -d</code>.</td>
+</tr>
+<tr>
+<td><code>ros2: command not found</code></td>
+<td>Shell não-interativo não lê o <code>.bashrc</code>. Em scripts, use <code>source /opt/ros/humble/setup.bash</code>.</td>
+</tr>
+<tr>
+<td><code>bad interpreter</code> / <code>exec format error</code></td>
+<td>Quebras CRLF nos <code>.sh</code>. Rode <code>sed -i 's/\r$//'</code> nos scripts e no Dockerfile.</td>
+</tr>
+<tr>
+<td>Gazebo a poucos FPS</td>
+<td>Faltou o <code>docker-compose.wsl.yaml</code>. Confirme com <code>glxinfo -B</code>: se aparecer <code>llvmpipe</code>, é software.</td>
+</tr>
+<tr>
+<td><code>Arming denied</code> / drone parado</td>
+<td><code>Preflight Fail: No connection to the GCS</code>. Abra o QGroundControl. Alternativa só para simulação: <code>param set NAV_DLL_ACT 0</code> no console <code>pxh&gt;</code>.</td>
+</tr>
+<tr>
+<td><code>ERROR [vehicle_imu] timestamp error</code></td>
+<td>CPU saturada — quase sempre um <code>colcon build</code> rodando junto. Não compile com a simulação no ar.</td>
+</tr>
+<tr>
+<td>QGC não abre janela</td>
+<td>Falta <code>QT_QPA_PLATFORM=xcb</code> ou a lib <code>libxcb-shape0</code>.</td>
+</tr>
+<tr>
+<td><code>ros2 topic echo</code> mudo</td>
+<td>Falta <code>--qos-reliability best_effort</code>, ou o <code>px4_msgs</code> não está compilado.</td>
+</tr>
+<tr>
+<td>Log do PX4 crescendo em GB</td>
+<td>PX4 rodando destacado, sem TTY. Rode o Terminal 1 sempre interativo.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Sobre a árvore de comportamento da missão</p>
+<p>O template marca <code>Arm ✓</code> mesmo quando o PX4 <strong>recusa</strong> o armamento, porque o nó
+confirma apenas que enviou o comando, não que ele foi aceito. Se o drone não sai do
+chão mas a árvore mostra tudo verde, verifique o Terminal 1: a recusa aparece lá, não
+na missão.</p>
+</div>
+<hr />
+<p><em>Procedimento reconstruído a partir de uma instalação real completa, em Windows 11 com
+RTX 4050. Os tempos e tamanhos são medidos, não estimados. Ajuste <code>SEU_USUARIO</code> para o
+nome do seu usuário do Linux.</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../instalacao-nativa/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Instalação nativa (Linux)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Instalação nativa (Linux)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../uxrce-dds/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Ponte uXRCE-DDS (PX4 ↔ ROS 2)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Ponte uXRCE-DDS (PX4 ↔ ROS 2)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/edra-unb-fga" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/edra-unb" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/edraunb" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>

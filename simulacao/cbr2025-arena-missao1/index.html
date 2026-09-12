@@ -1,0 +1,2394 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Hub central de documentação técnica, guias e tutoriais da EDRA (UnB)">
+      
+      
+      
+      
+        <link rel="prev" href="../../setup/uxrce-dds/">
+      
+      
+        <link rel="next" href="../inicializacao-desacoplada/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../img/logo-edra.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>CBR2025 — Arena + Missão 1 - EdraWiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#documentacao-simulacao-cbr2025-arena-missao-1-de-deteccaopouso" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href="../.." title="EdraWiki" class="md-header__button md-logo" aria-label="EdraWiki" data-md-component="logo">
+      
+  <img src="../../img/logo-edra.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            EdraWiki
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CBR2025 — Arena + Missão 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Mudar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="green"  aria-label="Mudar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Mudar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Compartilhar" aria-label="Compartilhar" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/edra-unb-fga/EdraWiki" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    EdraWiki
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Início
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../primeiros-passos/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Primeiros passos
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../mapa-da-documentacao/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Mapa da Documentação
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../setup/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Setup e Instalação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Simulação
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../controle/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Controle
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../visao/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Visão Computacional
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../hardware/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Hardware / Raspberry
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../contribuir/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Como contribuir
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="EdraWiki" class="md-nav__button md-logo" aria-label="EdraWiki" data-md-component="logo">
+      
+  <img src="../../img/logo-edra.png" alt="logo">
+
+    </a>
+    EdraWiki
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/edra-unb-fga/EdraWiki" title="Ir ao repositório" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    EdraWiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Início
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../primeiros-passos/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Primeiros passos
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mapa-da-documentacao/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mapa da Documentação
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../setup/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup e Instalação
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Setup e Instalação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/instalacao-nativa/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Instalação nativa (Linux)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/docker-windows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker no Windows (WSL2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/uxrce-dds/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ponte uXRCE-DDS (PX4 ↔ ROS 2)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Simulação
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Simulação
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CBR2025 — Arena + Missão 1
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CBR2025 — Arena + Missão 1
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ambiente-versoes-usadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ambiente / versões usadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-requisitos-assumidos-ja-instalados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pré-requisitos (assumidos já instalados)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-parte-a-instalar-a-arena-arenas_gazebo-cbr2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Parte A — Instalar a Arena (Arenas_Gazebo / CBR2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Parte A — Instalar a Arena (Arenas_Gazebo / CBR2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-clonar-e-entrar-na-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.1 Clonar e entrar na branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-substituir-a-pasta-gz-do-px4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.2 Substituir a pasta gz do PX4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-limpar-build-e-subir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.3 Limpar build e subir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-parte-b-instalar-a-missao-cbr_ws-deteccao-pouso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Parte B — Instalar a Missão (CBR_ws / detecção + pouso)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Parte B — Instalar a Missão (CBR_ws / detecção + pouso)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1-clonar-e-entrar-na-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.1 Clonar e entrar na branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2-compilar-o-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.2 Compilar o workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3-rodar-a-missao-3-terminais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.3 Rodar a missão (3 terminais)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-problemas-encontrados-e-solucoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Problemas encontrados e soluções
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Problemas encontrados e soluções">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problema-1-drone_config-nao-compila-__init__py-faltando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 1 — drone_config não compila: __init__.py faltando
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-2-conflito-de-versao-do-protobuf-ao-iniciar-a-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 2 — Conflito de versão do protobuf ao iniciar a missão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-3-gz_envsh-faltando-gazebo-nao-acha-o-mundo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 3 — gz_env.sh faltando: Gazebo não acha o mundo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-4-found-0-compass-magnetometro-sumiu-do-modelo-do-drone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 4 — "Found 0 compass": magnetômetro sumiu do modelo do drone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-5-flags-positionvelocity-invertidas-offboard-nao-controla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 5 — Flags position/velocity invertidas (offboard não controla)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-6-topico-vehicle_status-errado-px4-v116-usa-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 6 — Tópico vehicle_status errado (PX4 v1.16 usa versionamento)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-7-qos-incompativel-nas-subscriptions-recebe-silencio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 7 — QoS incompatível nas subscriptions (recebe silêncio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-8-arm-negado-resolve-system-health-failures-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 8 — Arm negado: "Resolve system health failures first"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-9-camera-congelada-e-deteccao-nunca-acha-base-gargalo-de-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 9 — Câmera "congelada" e detecção nunca acha base (gargalo de desempenho)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resumo-dos-arquivos-alterados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Resumo dos arquivos alterados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-checklist-rapido-para-rodar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Checklist rápido para rodar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../inicializacao-desacoplada/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicialização desacoplada (troubleshooting)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../erros-comuns/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lista de erros comuns
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../controle/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Controle
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_6" id="__nav_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Controle
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/offboard/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Modo Offboard (posição × velocidade)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/coordenadas/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sistemas de coordenadas (NED × ENU)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../controle/behavior-trees/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Árvores de comportamento (py_trees)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../visao/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Visão Computacional
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_7" id="__nav_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Visão Computacional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../visao/dataset-e-treino/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset sintético e treino (YOLO)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../hardware/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardware / Raspberry
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Hardware / Raspberry
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../contribuir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Como contribuir
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-ambiente-versoes-usadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Ambiente / versões usadas
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-pre-requisitos-assumidos-ja-instalados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Pré-requisitos (assumidos já instalados)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-parte-a-instalar-a-arena-arenas_gazebo-cbr2025" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Parte A — Instalar a Arena (Arenas_Gazebo / CBR2025)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Parte A — Instalar a Arena (Arenas_Gazebo / CBR2025)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a1-clonar-e-entrar-na-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.1 Clonar e entrar na branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a2-substituir-a-pasta-gz-do-px4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.2 Substituir a pasta gz do PX4
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#a3-limpar-build-e-subir" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A.3 Limpar build e subir
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-parte-b-instalar-a-missao-cbr_ws-deteccao-pouso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Parte B — Instalar a Missão (CBR_ws / detecção + pouso)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Parte B — Instalar a Missão (CBR_ws / detecção + pouso)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#b1-clonar-e-entrar-na-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.1 Clonar e entrar na branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b2-compilar-o-workspace" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.2 Compilar o workspace
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b3-rodar-a-missao-3-terminais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        B.3 Rodar a missão (3 terminais)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-problemas-encontrados-e-solucoes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Problemas encontrados e soluções
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Problemas encontrados e soluções">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#problema-1-drone_config-nao-compila-__init__py-faltando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 1 — drone_config não compila: __init__.py faltando
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-2-conflito-de-versao-do-protobuf-ao-iniciar-a-missao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 2 — Conflito de versão do protobuf ao iniciar a missão
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-3-gz_envsh-faltando-gazebo-nao-acha-o-mundo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 3 — gz_env.sh faltando: Gazebo não acha o mundo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-4-found-0-compass-magnetometro-sumiu-do-modelo-do-drone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 4 — "Found 0 compass": magnetômetro sumiu do modelo do drone
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-5-flags-positionvelocity-invertidas-offboard-nao-controla" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 5 — Flags position/velocity invertidas (offboard não controla)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-6-topico-vehicle_status-errado-px4-v116-usa-versionamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 6 — Tópico vehicle_status errado (PX4 v1.16 usa versionamento)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-7-qos-incompativel-nas-subscriptions-recebe-silencio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 7 — QoS incompatível nas subscriptions (recebe silêncio)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-8-arm-negado-resolve-system-health-failures-first" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 8 — Arm negado: "Resolve system health failures first"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problema-9-camera-congelada-e-deteccao-nunca-acha-base-gargalo-de-desempenho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Problema 9 — Câmera "congelada" e detecção nunca acha base (gargalo de desempenho)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-resumo-dos-arquivos-alterados" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Resumo dos arquivos alterados
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-checklist-rapido-para-rodar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Checklist rápido para rodar
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="documentacao-simulacao-cbr2025-arena-missao-1-de-deteccaopouso">Documentação — Simulação CBR2025 (Arena + Missão 1 de detecção/pouso)<a class="headerlink" href="#documentacao-simulacao-cbr2025-arena-missao-1-de-deteccaopouso" title="Permanent link">&para;</a></h1>
+<p>Guia completo de como montar, rodar e depurar o ambiente de simulação da CBR2025:
+arena customizada no Gazebo + missão de detecção e pouso nas bases (PX4 SITL + ROS 2).</p>
+<p>Inclui o passo a passo de instalação/execução e <strong>todos os problemas encontrados
+com suas respectivas soluções</strong> (a versão do código estava desatualizada e teve
+vários pontos a corrigir).</p>
+<div class="admonition abstract">
+<p class="admonition-title">Onde este guia se encaixa</p>
+<p>Este guia assume que o ambiente base (ROS 2, PX4, agente uXRCE) <strong>já está
+instalado</strong> — veja <a href="../../primeiros-passos/">Primeiros passos</a> e
+<a href="../../setup/">Setup e Instalação</a> se ainda não fez isso. Os problemas
+documentados aqui são <strong>específicos desta arena</strong> (sensores do modelo, versionamento
+do PX4 v1.16). Para erros mais genéricos de ambiente, veja
+<a href="../erros-comuns/">Lista de erros comuns</a>.</p>
+</div>
+<hr />
+<h2 id="1-ambiente-versoes-usadas">1. Ambiente / versões usadas<a class="headerlink" href="#1-ambiente-versoes-usadas" title="Permanent link">&para;</a></h2>
+<p>Estas foram as versões testadas nesta máquina. Vale registrar porque <strong>vários
+problemas vieram justamente de incompatibilidade de versão</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Componente</th>
+<th>Versão</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SO</td>
+<td>Ubuntu 22.04 (kernel 6.8)</td>
+</tr>
+<tr>
+<td>ROS 2</td>
+<td>Humble</td>
+</tr>
+<tr>
+<td>Gazebo Sim</td>
+<td>8.11.0 (Harmonic)</td>
+</tr>
+<tr>
+<td>PX4-Autopilot</td>
+<td>v1.16.0</td>
+</tr>
+<tr>
+<td>Micro XRCE-DDS Agent</td>
+<td>instalado em <code>/usr/local/bin/MicroXRCEAgent</code></td>
+</tr>
+<tr>
+<td>Python</td>
+<td>3.10</td>
+</tr>
+<tr>
+<td>protobuf (pip)</td>
+<td>4.25.9 (fonte de conflito, ver Problema 2)</td>
+</tr>
+</tbody>
+</table>
+<p>Repositórios:
+- <strong>Arena:</strong> <code>https://github.com/edra-unb-fga/Arenas_Gazebo</code> — branch <strong><code>CBR2025</code></strong>
+- <strong>Missão:</strong> <code>https://github.com/edra-unb-fga/CBR_ws</code> — branch <strong><code>#CO-Missao-1-bases</code></strong>
+  (atenção: o nome real da branch começa com <code>#</code> e tem um traço só)</p>
+<hr />
+<h2 id="2-pre-requisitos-assumidos-ja-instalados">2. Pré-requisitos (assumidos já instalados)<a class="headerlink" href="#2-pre-requisitos-assumidos-ja-instalados" title="Permanent link">&para;</a></h2>
+<p>Este guia parte de uma máquina que já tem:</p>
+<ul>
+<li><strong>PX4-Autopilot</strong> clonado em <code>~/PX4-Autopilot</code> e compilando (<code>make px4_sitl</code>).</li>
+<li><strong>Gazebo Harmonic (gz-sim 8)</strong> instalado.</li>
+<li><strong>ROS 2 Humble</strong> instalado (<code>/opt/ros/humble</code>).</li>
+<li><strong>Micro XRCE-DDS Agent</strong> instalado (a ponte entre PX4 e ROS 2).</li>
+<li><strong>colcon</strong> (<code>sudo apt install python3-colcon-common-extensions</code>).</li>
+<li>Dependências Python da missão: <code>ultralytics</code> (YOLO), <code>opencv-python</code>, <code>numpy</code>,
+  <code>pymap3d</code>, <code>simple-pid</code>, e os bindings <code>python3-gz-msgs10</code> / <code>python3-gz-transport13</code>.</li>
+</ul>
+<p>Se estiver montando do zero, siga primeiro o tutorial oficial do PX4 para SITL + gz,
+e depois volte para cá.</p>
+<hr />
+<h2 id="3-parte-a-instalar-a-arena-arenas_gazebo-cbr2025">3. Parte A — Instalar a Arena (Arenas_Gazebo / CBR2025)<a class="headerlink" href="#3-parte-a-instalar-a-arena-arenas_gazebo-cbr2025" title="Permanent link">&para;</a></h2>
+<p>A arena substitui os modelos/mundos padrão do PX4 pelos da CBR2025
+(plataforma, bases de pouso, kits, etc).</p>
+<h3 id="a1-clonar-e-entrar-na-branch">A.1 Clonar e entrar na branch<a class="headerlink" href="#a1-clonar-e-entrar-na-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/edra-unb-fga/Arenas_Gazebo.git
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>Arenas_Gazebo
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>git<span class="w"> </span>checkout<span class="w"> </span>CBR2025
+</code></pre></div>
+<h3 id="a2-substituir-a-pasta-gz-do-px4">A.2 Substituir a pasta <code>gz</code> do PX4<a class="headerlink" href="#a2-substituir-a-pasta-gz-do-px4" title="Permanent link">&para;</a></h3>
+<p>O PX4 usa os modelos/mundos que estão em <code>~/PX4-Autopilot/Tools/simulation/gz</code>.
+A arena substitui o <strong>conteúdo</strong> dessa pasta pelo do repositório.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>~/PX4-Autopilot/Tools/simulation
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>gz
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>cp<span class="w"> </span>-r<span class="w"> </span>~/Arenas_Gazebo<span class="w"> </span>gz
+</code></pre></div>
+<blockquote>
+<p><strong>Atenção à estrutura:</strong> depois do <code>cp</code>, confira que <code>worlds/</code> e <code>models/</code>
+aparecem <strong>direto</strong> dentro de <code>gz/</code>, e não aninhados em <code>gz/gz/</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>ls<span class="w"> </span>-la<span class="w"> </span>~/PX4-Autopilot/Tools/simulation/gz
+</code></pre></div></p>
+</blockquote>
+<h3 id="a3-limpar-build-e-subir">A.3 Limpar build e subir<a class="headerlink" href="#a3-limpar-build-e-subir" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">cd</span><span class="w"> </span>~/PX4-Autopilot
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>rm<span class="w"> </span>-rf<span class="w"> </span>build/
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500_mono_cam_down
+</code></pre></div>
+<blockquote>
+<p>Se o Gazebo abrir e você ver a plataforma com as bases de pouso e os kits,
+a arena está OK. <strong>Antes de continuar, leia a seção de Problemas</strong> —
+alguns fixes precisam ser aplicados aqui (magnetômetro, <code>gz_env.sh</code>).</p>
+</blockquote>
+<hr />
+<h2 id="4-parte-b-instalar-a-missao-cbr_ws-deteccao-pouso">4. Parte B — Instalar a Missão (CBR_ws / detecção + pouso)<a class="headerlink" href="#4-parte-b-instalar-a-missao-cbr_ws-deteccao-pouso" title="Permanent link">&para;</a></h2>
+<h3 id="b1-clonar-e-entrar-na-branch">B.1 Clonar e entrar na branch<a class="headerlink" href="#b1-clonar-e-entrar-na-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>~
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/edra-unb-fga/CBR_ws.git
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="nb">cd</span><span class="w"> </span>CBR_ws
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>git<span class="w"> </span>checkout<span class="w"> </span><span class="s1">'#CO-Missao-1-bases'</span>
+</code></pre></div>
+<p>(As aspas são necessárias por causa do <code>#</code>.)</p>
+<h3 id="b2-compilar-o-workspace">B.2 Compilar o workspace<a class="headerlink" href="#b2-compilar-o-workspace" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span>~/CBR_ws
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div>
+<blockquote>
+<p><strong>O <code>px4_msgs</code> demora ~15-18 min</strong> na primeira compilação — ele gera código C++
+para todas as mensagens do PX4. É custo <strong>único</strong>; nas próximas vezes só os
+pacotes Python recompilam (segundos). Ver Problema 1 se o <code>drone_config</code> falhar.</p>
+</blockquote>
+<h3 id="b3-rodar-a-missao-3-terminais">B.3 Rodar a missão (3 terminais)<a class="headerlink" href="#b3-rodar-a-missao-3-terminais" title="Permanent link">&para;</a></h3>
+<p><strong>Terminal 1 — Simulação PX4 + Gazebo (arena):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">cd</span><span class="w"> </span>~/PX4-Autopilot
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500_mono_cam_down
+</code></pre></div></p>
+<p><strong>Terminal 2 — Ponte ROS 2 ↔ PX4:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>MicroXRCEAgent<span class="w"> </span>udp4<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>
+</code></pre></div></p>
+<p><strong>Terminal 3 — QGroundControl</strong> (recomendado — ver Problema 8):
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>~/Downloads/QGroundControl-x86_64.AppImage
+</code></pre></div></p>
+<p><strong>Terminal 4 — A missão:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">cd</span><span class="w"> </span>~/CBR_ws
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">source</span><span class="w"> </span>install/setup.bash
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="nv">PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION</span><span class="o">=</span>python<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>Missao_1<span class="w"> </span>main
+</code></pre></div></p>
+<blockquote>
+<p>O prefixo <code>PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python</code> é obrigatório
+(ver Problema 2).</p>
+</blockquote>
+<hr />
+<h2 id="5-problemas-encontrados-e-solucoes">5. Problemas encontrados e soluções<a class="headerlink" href="#5-problemas-encontrados-e-solucoes" title="Permanent link">&para;</a></h2>
+<p>Ordem aproximada em que apareceram ao subir a missão.</p>
+<h3 id="problema-1-drone_config-nao-compila-__init__py-faltando">Problema 1 — <code>drone_config</code> não compila: <code>__init__.py</code> faltando<a class="headerlink" href="#problema-1-drone_config-nao-compila-__init__py-faltando" title="Permanent link">&para;</a></h3>
+<p><strong>Sintoma (no <code>colcon build</code>):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>error: package directory 'drone_config/commander' does not exist
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>Failed &lt;&lt;&lt; drone_config
+</code></pre></div></p>
+<p><strong>Causa:</strong> faltava o arquivo <code>src/drone_config/drone_config/__init__.py</code> no repositório
+(não estava versionado). Sem ele, o setuptools não reconhece o pacote Python.</p>
+<p><strong>Solução:</strong> criar o arquivo (vazio, como os outros <code>__init__.py</code> do projeto) e recompilar:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>touch<span class="w"> </span>~/CBR_ws/src/drone_config/drone_config/__init__.py
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="nb">cd</span><span class="w"> </span>~/CBR_ws<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+</code></pre></div></p>
+<hr />
+<h3 id="problema-2-conflito-de-versao-do-protobuf-ao-iniciar-a-missao">Problema 2 — Conflito de versão do protobuf ao iniciar a missão<a class="headerlink" href="#problema-2-conflito-de-versao-do-protobuf-ao-iniciar-a-missao" title="Permanent link">&para;</a></h3>
+<p><strong>Sintoma:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>TypeError: Descriptors cannot be created directly.
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>If this call came from a _pb2.py file, your generated code is out of date ...
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>(from gz.msgs10.image_pb2 import Image)
+</code></pre></div></p>
+<p><strong>Causa:</strong> a versão do <code>protobuf</code> instalada via pip (4.25.9) é mais nova que a usada
+para gerar os bindings do Gazebo (<code>python3-gz-msgs10</code>). Eles brigam ao importar a
+mensagem de imagem da câmera.</p>
+<p><strong>Solução:</strong> rodar a missão forçando a implementação pura-Python do protobuf:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nv">PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION</span><span class="o">=</span>python<span class="w"> </span>ros2<span class="w"> </span>run<span class="w"> </span>Missao_1<span class="w"> </span>main
+</code></pre></div>
+(Alternativa permanente: fixar <code>protobuf</code> em 3.20.x no ambiente — mas o prefixo
+acima é o menos invasivo.)</p>
+<hr />
+<h3 id="problema-3-gz_envsh-faltando-gazebo-nao-acha-o-mundo">Problema 3 — <code>gz_env.sh</code> faltando: Gazebo não acha o mundo<a class="headerlink" href="#problema-3-gz_envsh-faltando-gazebo-nao-acha-o-mundo" title="Permanent link">&para;</a></h3>
+<p><strong>Sintoma:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>[Err] File [/default.sdf] resolved to path [/default.sdf] but the path does not exist
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>[Err] Failed to find world [/default.sdf]
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>INFO [init] Waiting for Gazebo world... (repete pra sempre)
+</code></pre></div></p>
+<p><strong>Causa:</strong> o PX4 gera, durante o build, o arquivo
+<code>build/px4_sitl_default/rootfs/gz_env.sh</code>, que define <code>PX4_GZ_WORLDS</code>,
+<code>PX4_GZ_MODELS</code> e <code>GZ_SIM_RESOURCE_PATH</code>. Ele sumiu/não foi gerado, então o PX4
+tentou abrir <code>/default.sdf</code> (caminho vazio).</p>
+<p><strong>Solução:</strong> recriar o arquivo apontando para as pastas corretas:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>cat<span class="w"> </span>&gt;<span class="w"> </span>~/PX4-Autopilot/build/px4_sitl_default/rootfs/gz_env.sh<span class="w"> </span><span class="s">&lt;&lt; 'EOF'</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="s">#!/usr/bin/env bash</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="s">export PX4_GZ_MODELS=/home/luana/PX4-Autopilot/Tools/simulation/gz/models</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="s">export PX4_GZ_WORLDS=/home/luana/PX4-Autopilot/Tools/simulation/gz/worlds</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="s">export PX4_GZ_PLUGINS=/home/luana/PX4-Autopilot/build/px4_sitl_default/src/modules/simulation/gz_plugins</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="s">export PX4_GZ_SERVER_CONFIG=/home/luana/PX4-Autopilot/src/modules/simulation/gz_bridge/server.config</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="s">export GZ_SIM_RESOURCE_PATH=$GZ_SIM_RESOURCE_PATH:$PX4_GZ_MODELS:$PX4_GZ_WORLDS</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="s">export GZ_SIM_SYSTEM_PLUGIN_PATH=$GZ_SIM_SYSTEM_PLUGIN_PATH:$PX4_GZ_PLUGINS</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="s">export GZ_SIM_SERVER_CONFIG_PATH=$PX4_GZ_SERVER_CONFIG</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="s">EOF</span>
+</code></pre></div>
+(Ajuste os caminhos se seu usuário não for <code>luana</code>. Um <code>rm -rf build &amp;&amp; make px4_sitl</code>
+também regenera o arquivo.)</p>
+<hr />
+<h3 id="problema-4-found-0-compass-magnetometro-sumiu-do-modelo-do-drone">Problema 4 — "Found 0 compass": magnetômetro sumiu do modelo do drone<a class="headerlink" href="#problema-4-found-0-compass-magnetometro-sumiu-do-modelo-do-drone" title="Permanent link">&para;</a></h3>
+<p><strong>Sintoma (no shell <code>pxh&gt;</code> do PX4):</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>WARN [health_and_arming_checks] Preflight Fail: no heading reference
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>WARN [health_and_arming_checks] Preflight Fail: Found 0 compass (required: 1)
+</code></pre></div></p>
+<p><strong>Causa (a de verdade):</strong> ao substituir a pasta <code>gz</code> pela da arena, o arquivo
+<code>models/x500_base/model.sdf</code> da arena <strong>sobrescreveu</strong> o original do PX4 e, nesse
+processo, o <strong>sensor de magnetômetro foi removido</strong> do modelo. Sem magnetômetro,
+o PX4 não arma.</p>
+<blockquote>
+<p>O README da arena sugere o paliativo <code>sensor_mag_sim start</code> no <code>pxh&gt;</code>. Isso às vezes
+funciona, mas é <strong>instável</strong>: esse módulo simulado depende do EKF2 já ter posição
+global válida, o que cria uma dependência circular (compass depende de GPS que
+depende de compass). Por isso ele resolvia em algumas execuções e em outras não.</p>
+</blockquote>
+<p><strong>Solução definitiva:</strong> devolver o sensor de magnetômetro ao <code>model.sdf</code>, exatamente
+como no modelo original do PX4. No arquivo
+<code>~/PX4-Autopilot/Tools/simulation/gz/models/x500_base/model.sdf</code> (e no equivalente
+em <code>~/Arenas_Gazebo/gz/models/x500_base/model.sdf</code>), inserir o bloco abaixo <strong>entre</strong>
+o sensor <code>air_pressure_sensor</code> e o <code>imu_sensor</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a><span class="w">      </span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">"magnetometer_sensor"</span><span class="w"> </span><span class="na">type=</span><span class="s">"magnetometer"</span><span class="nt">&gt;</span>
+<a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a><span class="w">        </span><span class="nt">&lt;always_on&gt;</span>1<span class="nt">&lt;/always_on&gt;</span>
+<a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a><span class="w">        </span><span class="nt">&lt;update_rate&gt;</span>100<span class="nt">&lt;/update_rate&gt;</span>
+<a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a><span class="w">        </span><span class="nt">&lt;magnetometer&gt;</span>
+<a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a><span class="w">          </span><span class="nt">&lt;x&gt;&lt;noise</span><span class="w"> </span><span class="na">type=</span><span class="s">"gaussian"</span><span class="nt">&gt;&lt;stddev&gt;</span>0.0001<span class="nt">&lt;/stddev&gt;&lt;/noise&gt;&lt;/x&gt;</span>
+<a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a><span class="w">          </span><span class="nt">&lt;y&gt;&lt;noise</span><span class="w"> </span><span class="na">type=</span><span class="s">"gaussian"</span><span class="nt">&gt;&lt;stddev&gt;</span>0.0001<span class="nt">&lt;/stddev&gt;&lt;/noise&gt;&lt;/y&gt;</span>
+<a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a><span class="w">          </span><span class="nt">&lt;z&gt;&lt;noise</span><span class="w"> </span><span class="na">type=</span><span class="s">"gaussian"</span><span class="nt">&gt;&lt;stddev&gt;</span>0.0001<span class="nt">&lt;/stddev&gt;&lt;/noise&gt;&lt;/z&gt;</span>
+<a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a><span class="w">        </span><span class="nt">&lt;/magnetometer&gt;</span>
+<a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a><span class="w">      </span><span class="nt">&lt;/sensor&gt;</span>
+</code></pre></div>
+<p>Com o sensor nativo de volta, <strong>não é preciso</strong> o <code>sensor_mag_sim start</code>.</p>
+<hr />
+<h3 id="problema-5-flags-positionvelocity-invertidas-offboard-nao-controla">Problema 5 — Flags <code>position</code>/<code>velocity</code> invertidas (offboard não controla)<a class="headerlink" href="#problema-5-flags-positionvelocity-invertidas-offboard-nao-controla" title="Permanent link">&para;</a></h3>
+<p><strong>Arquivo:</strong> <code>src/drone_config/drone_config/commander/px4_commander.py</code>,
+método <code>publish_offboard_control_heartbeat_signal()</code>.</p>
+<p><strong>Sintoma:</strong> o drone arma mas não decola; a árvore de comportamento marca tudo como
+sucesso (<code>✓</code>) mesmo o drone parado (porque os nós não verificam o estado real).</p>
+<p><strong>Causa:</strong> o heartbeat do modo offboard anunciava controle por <strong>velocidade</strong>
+(<code>velocity=True</code>, <code>position=False</code>), mas todo o resto do código envia <strong>setpoints de
+posição</strong> (<code>publish_setpoint</code>). O próprio comentário no código dizia que <code>position</code>
+"deve ser True". O PX4 recebia setpoints de posição com velocidade <code>NaN</code> → ignorava.</p>
+<p><strong>Solução:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a><span class="c1"># de:</span>
+<a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a><span class="n">msg</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-18-3" name="__codelineno-18-3" href="#__codelineno-18-3"></a><span class="n">msg</span><span class="o">.</span><span class="n">velocity</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-4" name="__codelineno-18-4" href="#__codelineno-18-4"></a><span class="c1"># para:</span>
+<a id="__codelineno-18-5" name="__codelineno-18-5" href="#__codelineno-18-5"></a><span class="n">msg</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-18-6" name="__codelineno-18-6" href="#__codelineno-18-6"></a><span class="n">msg</span><span class="o">.</span><span class="n">velocity</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div></p>
+<hr />
+<h3 id="problema-6-topico-vehicle_status-errado-px4-v116-usa-versionamento">Problema 6 — Tópico <code>vehicle_status</code> errado (PX4 v1.16 usa versionamento)<a class="headerlink" href="#problema-6-topico-vehicle_status-errado-px4-v116-usa-versionamento" title="Permanent link">&para;</a></h3>
+<p><strong>Arquivo:</strong> <code>src/drone_config/drone_config/commander/px4_commander.py</code>.</p>
+<p><strong>Sintoma:</strong> o callback de status nunca dispara; <code>arming_state</code>/<code>nav_state</code> ficam
+sempre <code>None</code>; o commander "voa cego" sobre o estado do drone.</p>
+<p><strong>Causa:</strong> a partir do <strong>PX4 v1.16</strong>, mensagens versionadas usam o sufixo <code>_v&lt;versão&gt;</code>
+no nome do tópico. O <code>VehicleStatus</code> tem <code>MESSAGE_VERSION = 1</code>, então o tópico real
+é <code>/fmu/out/vehicle_status_v1</code> — o código antigo assinava <code>/fmu/out/vehicle_status</code>
+(que não existe mais). Já o <code>VehicleLocalPosition</code> tem <code>MESSAGE_VERSION = 0</code>,
+por isso a posição funcionava (fica sem sufixo).</p>
+<p><strong>Solução:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="c1"># de:</span>
+<a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="s1">'/fmu/out/vehicle_status'</span>
+<a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="c1"># para:</span>
+<a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="s1">'/fmu/out/vehicle_status_v1'</span>
+</code></pre></div></p>
+<hr />
+<h3 id="problema-7-qos-incompativel-nas-subscriptions-recebe-silencio">Problema 7 — QoS incompatível nas subscriptions (recebe silêncio)<a class="headerlink" href="#problema-7-qos-incompativel-nas-subscriptions-recebe-silencio" title="Permanent link">&para;</a></h3>
+<p><strong>Arquivo:</strong> <code>src/drone_config/drone_config/commander/px4_commander.py</code>.</p>
+<p><strong>Sintoma:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>WARN New publisher discovered on topic '/fmu/out/vehicle_local_position',
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>offering incompatible QoS. No messages will be received from it.
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>Last incompatible policy: RELIABILITY
+</code></pre></div></p>
+<p><strong>Causa:</strong> o PX4 publica os tópicos <code>/fmu/out/*</code> com QoS <strong>BEST_EFFORT + TRANSIENT_LOCAL</strong>.
+O commander assinava com o QoS padrão (<strong>RELIABLE</strong>), que é incompatível → nenhuma
+mensagem chega (posição, status, etc).</p>
+<p><strong>Solução:</strong> criar um perfil de QoS compatível e usá-lo em <strong>todas</strong> as subscriptions
+de <code>/fmu/out/*</code>:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">rclpy.qos</span><span class="w"> </span><span class="kn">import</span> <span class="n">QoSProfile</span><span class="p">,</span> <span class="n">ReliabilityPolicy</span><span class="p">,</span> <span class="n">DurabilityPolicy</span>
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="bp">self</span><span class="o">.</span><span class="n">qos_profile_px4_out</span> <span class="o">=</span> <span class="n">QoSProfile</span><span class="p">(</span>
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a>    <span class="n">depth</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>    <span class="n">reliability</span><span class="o">=</span><span class="n">ReliabilityPolicy</span><span class="o">.</span><span class="n">BEST_EFFORT</span><span class="p">,</span>
+<a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a>    <span class="n">durability</span><span class="o">=</span><span class="n">DurabilityPolicy</span><span class="o">.</span><span class="n">TRANSIENT_LOCAL</span><span class="p">,</span>
+<a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a><span class="p">)</span>
+<a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="c1"># usar self.qos_profile_px4_out em vehicle_status_v1, vehicle_local_position,</span>
+<a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="c1"># vehicle_global_position, etc.</span>
+</code></pre></div></p>
+<hr />
+<h3 id="problema-8-arm-negado-resolve-system-health-failures-first">Problema 8 — Arm negado: "Resolve system health failures first"<a class="headerlink" href="#problema-8-arm-negado-resolve-system-health-failures-first" title="Permanent link">&para;</a></h3>
+<p>Esse foi o mais difícil e teve <strong>duas causas combinadas</strong>.</p>
+<p><strong>Sintoma:</strong> o comando de arm é enviado mas o PX4 nega repetidamente:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>WARN [commander] Arming denied: Resolve system health failures first
+</code></pre></div>
+No QGroundControl aparece a mesma mensagem em vermelho.</p>
+<p><strong>Causa 8a — árvore arma cedo demais / sem confirmar.</strong>
+O nó <code>Arm</code> (<code>src/common_nodes/common_nodes/flight/arm.py</code>):
+- Enviava o comando de arm ~0.5 s após iniciar, antes do <strong>EKF2 convergir</strong> (posição
+  local e global válidas). No momento do arm o drone ainda está em <code>AUTO_LOITER</code>,
+  modo que <strong>exige posição local E global (GPS) válidas</strong>.
+- Mandava o comando <strong>uma única vez</strong> e assumia sucesso, sem checar se armou de fato.
+  Se caísse numa janela ruim de inicialização, nunca mais tentava.</p>
+<p><strong>Solução 8a:</strong> (1) esperar a posição ficar válida antes de armar; (2) reenviar o
+comando periodicamente até o PX4 confirmar <code>arming_state == ARMED</code> (=2).
+Para isso, o <code>px4_commander.py</code> passou a expor <code>local_position_valid</code> e
+<code>global_position_valid</code> (lidos de <code>xy_valid/z_valid</code> e <code>lat_lon_valid/alt_valid</code>,
+assinando também <code>/fmu/out/vehicle_global_position</code>), e o <code>arm.py</code> virou:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a><span class="n">ARMING_STATE_ARMED</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a><span class="n">RETRY_INTERVAL_S</span> <span class="o">=</span> <span class="mf">2.0</span>
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">publish_offboard_control_heartbeat_signal</span><span class="p">()</span>
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">arming_state</span> <span class="o">==</span> <span class="n">ARMING_STATE_ARMED</span><span class="p">:</span>
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>        <span class="k">return</span> <span class="n">py_trees</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">SUCCESS</span>          <span class="c1"># confirmado de verdade</span>
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start_time</span>
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>    <span class="n">position_ready</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">local_position_valid</span>
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>                      <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">global_position_valid</span><span class="p">)</span> <span class="ow">or</span> <span class="n">elapsed</span> <span class="o">&gt;</span> <span class="mf">15.0</span>
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>    <span class="n">should_retry</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_attempt_time</span> <span class="ow">is</span> <span class="kc">None</span>
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>                    <span class="ow">or</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">last_attempt_time</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">RETRY_INTERVAL_S</span><span class="p">)</span>
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">offboard_setpoint_counter</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">position_ready</span> <span class="ow">and</span> <span class="n">should_retry</span><span class="p">:</span>
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cmdr</span><span class="o">.</span><span class="n">send_command</span><span class="p">(</span><span class="n">VehicleCommand</span><span class="o">.</span><span class="n">VEHICLE_CMD_COMPONENT_ARM_DISARM</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">last_attempt_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>    <span class="k">return</span> <span class="n">py_trees</span><span class="o">.</span><span class="n">common</span><span class="o">.</span><span class="n">Status</span><span class="o">.</span><span class="n">RUNNING</span>
+</code></pre></div>
+<p><strong>Causa 8b — sem conexão com estação de solo (GCS).</strong>
+Uma das checagens de saúde é <code>No connection to the ground control station</code>. Sem uma
+GCS conectada, o arm fica intermitente.</p>
+<p><strong>Solução 8b:</strong> <strong>manter o QGroundControl aberto</strong> durante a missão. Com o QGC
+conectado, essa checagem passa e o arm fica confiável. (Foi o que fez o drone
+finalmente armar e subir de forma consistente.)</p>
+<hr />
+<h3 id="problema-9-camera-congelada-e-deteccao-nunca-acha-base-gargalo-de-desempenho">Problema 9 — Câmera "congelada" e detecção nunca acha base (gargalo de desempenho)<a class="headerlink" href="#problema-9-camera-congelada-e-deteccao-nunca-acha-base-gargalo-de-desempenho" title="Permanent link">&para;</a></h3>
+<p><strong>Sintoma:</strong> o drone chega a voar, mas a detecção YOLO sempre reporta <code>no detections</code>
+e a missão nunca pousa numa base.</p>
+<p><strong>Investigação:</strong> salvando os frames crus da câmera, descobrimos que <strong>todos os frames
+eram byte-a-byte idênticos</strong> por dezenas de segundos — a câmera estava efetivamente
+congelada, entregando sempre a mesma imagem inicial (borrada, do drone no chão).
+Medindo o Gazebo:
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>real_time_factor: 0.05  a  0.087   # simulação a ~5-8% da velocidade real
+<a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>pose do drone: Z ≈ -0.0125         # drone no chão, não subiu
+</code></pre></div></p>
+<p><strong>Causa raiz:</strong> a <strong>máquina estava saturada</strong>. Rodando ao mesmo tempo Gazebo server +
+janela 3D do Gazebo + QGroundControl + YOLO (inferência de 500–1600 ms por frame na
+CPU), o RTF despencou para ~5%. Com o simulador tão lento:
+- a câmera renderiza pouquíssimos frames (parece congelada);
+- o controle de voo, que espera tempo real, fica instável;
+- os temporizadores da missão baseados em <code>time.time()</code> (relógio real) expiram antes
+  de o drone fazer as coisas em tempo de simulação (ex.: o <code>Takeoff</code> espera 5 s de
+  relógio e declara "voo estabilizado", mas em 5 s reais passaram só ~0,25 s de
+  simulação → o drone mal saiu do chão).</p>
+<p>Ou seja: <strong>este é o motivo pelo qual os resultados eram intermitentes</strong> — quando a
+máquina estava menos carregada, o RTF melhorava e o drone chegava a subir (~1,6 m).</p>
+<p><strong>Soluções / recomendações (por ordem de impacto):</strong>
+1. <strong>Rodar em modo headless</strong> (sem a janela 3D do Gazebo — maior ganho isolado):
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="nv">HEADLESS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>make<span class="w"> </span>px4_sitl<span class="w"> </span>gz_x500_mono_cam_down
+</code></pre></div>
+2. <strong>Rodar o YOLO na GPU</strong> em vez da CPU, se houver placa dedicada (a inferência de
+   500–1600 ms/frame indica execução em CPU).
+3. <strong>Fechar aplicativos pesados</strong> durante o teste; idealmente rodar numa máquina mais
+   forte.
+4. <strong>(melhoria de código, do grupo)</strong> fazer a lógica da missão usar <strong>tempo de
+   simulação</strong> (<code>/clock</code>) em vez de <code>time.time()</code>, para ficar robusta a RTF baixo.</p>
+<blockquote>
+<p>Observação: com o sensor de magnetômetro correto (Problema 4) e o QGC aberto
+(Problema 8b), o drone <strong>arma, entra em OFFBOARD e decola de verdade</strong> (confirmado:
+<code>Arming: 2</code>, altitude subindo). O que ainda impede a missão de pousar nas bases é
+o gargalo de desempenho acima — não a lógica da missão em si.</p>
+</blockquote>
+<hr />
+<h2 id="6-resumo-dos-arquivos-alterados">6. Resumo dos arquivos alterados<a class="headerlink" href="#6-resumo-dos-arquivos-alterados" title="Permanent link">&para;</a></h2>
+<p><strong>No repositório da missão (<code>~/CBR_ws</code>):</strong>
+| Arquivo | Alteração |
+|---------|-----------|
+| <code>src/drone_config/drone_config/__init__.py</code> | <strong>criado</strong> (vazio) — Problema 1 |
+| <code>src/drone_config/drone_config/commander/px4_commander.py</code> | flags offboard, tópico <code>_v1</code>, QoS BEST_EFFORT, subscrição de global position + flags de validade — Problemas 5, 6, 7, 8a |
+| <code>src/common_nodes/common_nodes/flight/arm.py</code> | espera EKF2 + retry até confirmar arm — Problema 8a |</p>
+<p><strong>No ambiente do PX4 (<code>~/PX4-Autopilot</code>):</strong>
+| Arquivo | Alteração |
+|---------|-----------|
+| <code>Tools/simulation/gz/models/x500_base/model.sdf</code> | readicionado o sensor de magnetômetro — Problema 4 |
+| <code>build/px4_sitl_default/rootfs/gz_env.sh</code> | recriado (paths do mundo/modelos) — Problema 3 |</p>
+<p><strong>Na arena (<code>~/Arenas_Gazebo</code>, branch CBR2025):</strong>
+| Arquivo | Alteração |
+|---------|-----------|
+| <code>gz/models/x500_base/model.sdf</code> | readicionado o sensor de magnetômetro — Problema 4 |</p>
+<blockquote>
+<p>As mudanças no <code>~/CBR_ws</code> e no <code>~/Arenas_Gazebo</code> são as que valem a pena <strong>commitar</strong>
+nos repositórios do grupo. As mudanças dentro de <code>~/PX4-Autopilot/build/</code> são
+geradas/temporárias.</p>
+</blockquote>
+<hr />
+<h2 id="7-checklist-rapido-para-rodar">7. Checklist rápido para rodar<a class="headerlink" href="#7-checklist-rapido-para-rodar" title="Permanent link">&para;</a></h2>
+<ol>
+<li>[ ] Arena copiada para <code>~/PX4-Autopilot/Tools/simulation/gz</code> (worlds/models na raiz)</li>
+<li>[ ] Magnetômetro presente em <code>x500_base/model.sdf</code> (Problema 4)</li>
+<li>[ ] <code>CBR_ws</code> compilado; <code>drone_config/__init__.py</code> existe (Problema 1)</li>
+<li>[ ] Terminal 1: <code>make px4_sitl gz_x500_mono_cam_down</code> (ou <code>HEADLESS=1 ...</code>)</li>
+<li>[ ] Terminal 2: <code>MicroXRCEAgent udp4 -p 8888</code></li>
+<li>[ ] Terminal 3: QGroundControl aberto e conectado (Problema 8b)</li>
+<li>[ ] Terminal 4: <code>PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION=python ros2 run Missao_1 main</code> (Problema 2)</li>
+<li>[ ] Conferir o RTF do Gazebo — se estiver muito baixo (&lt;0.3), aliviar a carga (Problema 9)</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Voltar ao topo
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Rodapé" >
+        
+          
+          <a href="../../setup/uxrce-dds/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Ponte uXRCE-DDS (PX4 ↔ ROS 2)">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Ponte uXRCE-DDS (PX4 ↔ ROS 2)
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../inicializacao-desacoplada/" class="md-footer__link md-footer__link--next" aria-label="Próximo: Inicialização desacoplada (troubleshooting)">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Próximo
+              </span>
+              <div class="md-ellipsis">
+                Inicialização desacoplada (troubleshooting)
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/edra-unb-fga" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/edra-unb" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.instagram.com/edraunb" target="_blank" rel="noopener" title="www.instagram.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M224.3 141a115 115 0 1 0-.6 230 115 115 0 1 0 .6-230m-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1-.6-149.2m93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1-53.6 0m129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8M399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+      <div class="md-progress" data-md-component="progress" role="progressbar"></div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "navigation.instant", "navigation.instant.progress", "toc.follow", "search.suggest", "search.highlight", "search.share", "content.tabs.link", "content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@10/dist/mermaid.min.js"></script>
+      
+    
+  </body>
+</html>
