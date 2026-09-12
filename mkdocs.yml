@@ -6,16 +6,17 @@ docs_dir: docs
 
 nav:
   - Início: 'index.md'
+  - Primeiros passos: 'primeiros-passos.md'
   - Mapa da Documentação: 'mapa-da-documentacao.md'
-  - Simulação:
-      - CBR2025 — Arena + Missão 1: 'simulacao/cbr2025-arena-missao1.md'
-      - Inicialização desacoplada (fix timeout): 'simulacao/inicializacao-desacoplada.md'
-      - Lista de erros comuns: 'simulacao/erros-comuns.md'
   - Setup e Instalação:
       - Visão geral: 'setup/index.md'
       - Instalação nativa (Linux): 'setup/instalacao-nativa.md'
       - Docker no Windows (WSL2): 'setup/docker-windows.md'
       - Ponte uXRCE-DDS (PX4 ↔ ROS 2): 'setup/uxrce-dds.md'
+  - Simulação:
+      - CBR2025 — Arena + Missão 1: 'simulacao/cbr2025-arena-missao1.md'
+      - Inicialização desacoplada (troubleshooting): 'simulacao/inicializacao-desacoplada.md'
+      - Lista de erros comuns: 'simulacao/erros-comuns.md'
   - Controle:
       - Visão geral: 'controle/index.md'
       - Modo Offboard (posição × velocidade): 'controle/offboard.md'
@@ -73,10 +74,17 @@ theme:
 extra_css:
   - stylesheets/extra.css
 
+extra_javascript:
+  - https://unpkg.com/mermaid@10/dist/mermaid.min.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.inlinehilite
