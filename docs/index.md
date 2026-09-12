@@ -48,18 +48,18 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
     O índice de tudo. Aponta para toda a documentação que existe nos 53
     repositórios da organização, organizada por tema.
 
+- :material-download:{ .lg } **[Setup e Instalação](setup/index.md)**
+
+    ---
+
+    Como preparar o ambiente: PX4, ROS 2, Gazebo, Docker e a ponte uXRCE-DDS.
+
 - :material-quadcopter:{ .lg } **[Simulação CBR2025](simulacao/cbr2025-arena-missao1.md)**
 
     ---
 
     Passo a passo completo da arena + missão de detecção/pouso (PX4 + Gazebo +
     ROS 2), com todos os problemas e soluções.
-
-- :material-download:{ .lg } **[Setup e Instalação](setup/index.md)**
-
-    ---
-
-    Como preparar o ambiente: PX4, ROS 2, Gazebo, Docker e a ponte uXRCE-DDS.
 
 - :material-drone:{ .lg } **[Controle e Offboard](controle/index.md)**
 
