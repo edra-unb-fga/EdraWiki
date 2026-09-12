@@ -15,8 +15,8 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
 </p>
 
 <div class="edra-hero__buttons" markdown>
-[Mapa da Documentação](mapa-da-documentacao.md){ .md-button .md-button--primary }
-[Simulação CBR2025](simulacao/cbr2025-arena-missao1.md){ .md-button }
+[Primeiros passos](primeiros-passos.md){ .md-button .md-button--primary }
+[Mapa da Documentação](mapa-da-documentacao.md){ .md-button }
 [Como contribuir](contribuir.md){ .md-button }
 </div>
 </div>
@@ -28,7 +28,18 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
 
 ## Por onde começar
 
+!!! tip "Primeira vez aqui?"
+    A página [**Primeiros passos**](primeiros-passos.md) tem um fluxograma que te leva
+    direto para o guia certo, na ordem certa. Os cards abaixo são para navegação livre
+    por tema.
+
 <div class="grid cards" markdown>
+
+- :material-signpost:{ .lg } **[Primeiros passos](primeiros-passos.md)**
+
+    ---
+
+    Não sabe por onde começar? Comece aqui — a trilha completa, passo a passo.
 
 - :material-map-search:{ .lg } **[Mapa da Documentação](mapa-da-documentacao.md)**
 
