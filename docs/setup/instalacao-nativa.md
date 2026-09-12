@@ -1,9 +1,14 @@
 # Instalação nativa (Linux)
 
-Passo a passo completo para configurar e executar o ambiente de simulação do drone
-**direto no Ubuntu** (sem Docker): PX4 Autopilot, Gazebo Harmonic e ROS 2 Humble.
-Serve como material de estudo desde a instalação até a resolução dos problemas
-críticos de sensores encontrados nos testes da Arena CBR2025.
+Passo a passo completo para configurar o ambiente de simulação do drone **direto no
+Ubuntu** (sem Docker): PX4 Autopilot, Gazebo Harmonic e ROS 2 Humble.
+
+!!! abstract "Onde este guia se encaixa"
+    Este é um dos **dois** caminhos possíveis para montar o ambiente (veja
+    [Primeiros passos](../primeiros-passos.md)). Use este guia **se seu sistema é Linux**.
+    Se é Windows, use [Docker no Windows](docker-windows.md) em vez deste. Depois de
+    terminar aqui, o próximo passo é
+    [Simulação CBR2025 — Arena + Missão 1](../simulacao/cbr2025-arena-missao1.md).
 
 !!! info "Ambiente de referência"
     Ubuntu 22.04 · PX4 **v1.16.0** · Gazebo Harmonic (gz-sim 8.11.0) · ROS 2 Humble.
@@ -100,19 +105,10 @@ chmod +x QGroundControl.AppImage
 
 ### 1.6 Arena CBR2025
 
-Clone e configure os modelos da arena seguindo o repositório
-[Arenas_Gazebo](https://github.com/edra-unb-fga/Arenas_Gazebo) (branch `CBR2025`).
-Depois, a arena é aberta apontando o *resource path* tanto para a pasta da EDRA
-quanto para a do PX4:
-
-```bash
-GZ_SIM_RESOURCE_PATH=~/Arenas_Gazebo/gz/models:~/PX4-Autopilot/Tools/simulation/gz/models \
-  gz sim -r ~/Arenas_Gazebo/gz/worlds/default.sdf
-```
-
-!!! warning
-    Inicie o PX4 em modo *standalone* em outro terminal **antes** de rodar este
-    comando, senão o drone não será spawnado no mundo.
+O passo a passo completo de como clonar e configurar a arena da CBR2025 (e os problemas
+de sensores específicos dela) está no guia dedicado:
+[Simulação CBR2025 — Arena + Missão 1](../simulacao/cbr2025-arena-missao1.md). Ele
+assume que os passos 1.1 a 1.5 acima já foram feitos.
 
 ---
 
@@ -157,21 +153,17 @@ Abra **4 terminais** na ordem abaixo (e deixe o QGroundControl aberto):
 
 ---
 
-## 3. Histórico de problemas e soluções
+## 3. Se algo der errado
 
-Os problemas de sensores e ambiente encontrados nos testes da arena, com sintoma,
-causa e solução, estão documentados em detalhe no guia
-[Simulação CBR2025 — Arena + Missão 1](../simulacao/cbr2025-arena-missao1.md).
+Não existe uma lista de problemas aqui — o troubleshooting fica em dois lugares,
+dependendo do tipo de erro:
 
-Em resumo, os mais comuns:
-
-| Problema | Solução resumida |
-|----------|------------------|
-| **Arming denied** / "heading estimate invalid" (0 compass) | Manter PX4 v1.16.0 e devolver o sensor de magnetômetro ao `x500_base/model.sdf` |
-| **Mundo não encontrado** ("Unable to find file") | `rm -rf build/px4_sitl_default/rootfs` e recompilar |
-| **Drone não aparece** na cena | Iniciar os processos manualmente (standalone), não pelo `simulation-gazebo` |
-| **Time Jump Detected** (drone desarma) | Fechar o QGC (CPU saturada); aguardar "time sync converged" |
-| **`ros2 topic echo` mudo** | O PX4 publica em *best-effort* — use `--qos-reliability best_effort` |
+- **Erro genérico** de build, comunicação PX4/ROS2/Gazebo, ou da ponte uXRCE →
+  [Lista de erros comuns](../simulacao/erros-comuns.md).
+- **Erro específico da arena CBR2025** (sensores do modelo, arm negado, versionamento
+  do PX4 v1.16) → [Simulação CBR2025](../simulacao/cbr2025-arena-missao1.md).
+- **Timeout do `gz_bridge`** esperando o mundo carregar →
+  [Inicialização desacoplada](../simulacao/inicializacao-desacoplada.md).
 
 ---
 
@@ -196,3 +188,8 @@ Comandos no Ubuntu:
 | `gz topic -l \| grep mag` | Verificar se o magnetômetro publica |
 | `MicroXRCEAgent udp4 -p 8888` | Iniciar o agente da ponte |
 | `ros2 topic list \| grep fmu` | Ver os tópicos do PX4 no ROS 2 |
+
+---
+
+**Próximo passo:** com o ambiente instalado, siga para
+[Simulação CBR2025 — Arena + Missão 1](../simulacao/cbr2025-arena-missao1.md).

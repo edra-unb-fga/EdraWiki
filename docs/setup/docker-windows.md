@@ -9,6 +9,13 @@ Windows, com as armadilhas já mapeadas.
     Validado em **Windows 11** · GPU **NVIDIA RTX 4050** · distro **Ubuntu 22.04** ·
     tempo total **~2h30** · disco **~30 GB**.
 
+!!! abstract "Onde este guia se encaixa"
+    Este é um dos **dois** caminhos possíveis para montar o ambiente (veja
+    [Primeiros passos](../primeiros-passos.md)). Use este guia **se seu sistema é
+    Windows**. Se seu sistema é Linux, use
+    [Instalação nativa (Linux)](instalacao-nativa.md) em vez deste — os dois fazem a
+    mesma coisa por caminhos diferentes, não é preciso seguir os dois.
+
 **Percurso:** WSL2 → Docker Engine → GPU NVIDIA → projeto e build → QGroundControl →
 workspace da missão → rodar → armadilhas.
 

@@ -7,6 +7,14 @@ Inclui o passo a passo de instalação/execução e **todos os problemas encontr
 com suas respectivas soluções** (a versão do código estava desatualizada e teve
 vários pontos a corrigir).
 
+!!! abstract "Onde este guia se encaixa"
+    Este guia assume que o ambiente base (ROS 2, PX4, agente uXRCE) **já está
+    instalado** — veja [Primeiros passos](../primeiros-passos.md) e
+    [Setup e Instalação](../setup/index.md) se ainda não fez isso. Os problemas
+    documentados aqui são **específicos desta arena** (sensores do modelo, versionamento
+    do PX4 v1.16). Para erros mais genéricos de ambiente, veja
+    [Lista de erros comuns](erros-comuns.md).
+
 ---
 
 ## 1. Ambiente / versões usadas

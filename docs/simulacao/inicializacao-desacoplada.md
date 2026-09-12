@@ -1,8 +1,15 @@
-# Inicialização desacoplada (resolve timeout do gz_bridge)
+# Inicialização desacoplada (troubleshooting de timeout no gz_bridge)
 
-Procedimento de inicialização em **dois estágios** para a simulação. Esta abordagem
-resolve os problemas de *timeout* no `gz_bridge`, carregando o mundo 3D de forma
-independente **antes** de injetar (spawn) o modelo e iniciar o controlador de voo.
+!!! danger "Isto não é um fluxo de uso geral"
+    Use esta página **somente** se o comando padrão (`make px4_sitl gz_...`, como
+    descrito em [Instalação nativa](../setup/instalacao-nativa.md) ou
+    [Simulação CBR2025](cbr2025-arena-missao1.md)) travar com *timeout* esperando o
+    `gz_bridge` conectar. Se a simulação já sobe normalmente, **não precisa disso**.
+
+Procedimento de inicialização em **dois estágios**: carregar o mundo 3D de forma
+independente **antes** de injetar (spawn) o modelo e iniciar o controlador de voo. Isso
+evita a corrida de inicialização que causa o timeout em máquinas mais lentas ou com a
+arena pesada.
 
 !!! info "Contexto da configuração"
     Os comandos abaixo configuram o modelo `x500_mono_cam_down` para inicializar na
