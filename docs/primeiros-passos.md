@@ -26,18 +26,10 @@ flowchart TD
     I --> H
     J --> H
     H --> K["Pronto — ambiente validado"]
-
-    click B "https://github.com/edra-unb-fga/Configuracoes_Basicas_para_Controle" "Abrir repositório"
-    click D "setup/instalacao-nativa/" "Abrir guia"
-    click E "setup/docker-windows/" "Abrir guia"
-    click F "setup/uxrce-dds/" "Abrir guia"
-    click H "simulacao/cbr2025-arena-missao1/" "Abrir guia"
-    click I "simulacao/erros-comuns/" "Abrir guia"
-    click J "simulacao/inicializacao-desacoplada/" "Abrir guia"
 ```
 
-!!! tip "Clique nas caixas do fluxograma"
-    Cada caixa acima é um link direto para o guia correspondente.
+!!! tip "As caixas acima são só visuais"
+    Os links de verdade estão na lista abaixo, na mesma ordem do fluxograma.
 
 ---
 
