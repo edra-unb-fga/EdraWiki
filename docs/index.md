@@ -35,7 +35,7 @@ Guias, tutoriais e conhecimento da equipe, num só lugar de fácil acesso.
 
 <div class="grid cards" markdown>
 
-- :material-signpost:{ .lg } **[Primeiros passos](primeiros-passos.md)**
+- :material-sign-direction:{ .lg } **[Primeiros passos](primeiros-passos.md)**
 
     ---
 
