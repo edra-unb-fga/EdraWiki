@@ -1,3 +1,3 @@
 # Requisitos
 
-Seçao para o levanttamento de requisitos das missoes da cbr
+Seçao para o levantamento de requisitos das missoes da cbr
