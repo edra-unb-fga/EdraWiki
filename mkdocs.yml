@@ -30,8 +30,8 @@ nav:
   - Como contribuir: 'contribuir.md'
   - CBREdra: 
       - Requisitos: 'CBREdra/requisitos.md'
-      - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
       - Requisitos Missão 2: 'CBREdra/missao-2-teseu-controle.md'
+      - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
 
 theme:
   name: material
