@@ -28,6 +28,8 @@ nav:
   - Hardware / Raspberry:
       - Visão geral: 'hardware/index.md'
   - Como contribuir: 'contribuir.md'
+  - CBREdra: 
+      - Requisitos: 'CBREdra/requisitos.md'
 
 theme:
   name: material
