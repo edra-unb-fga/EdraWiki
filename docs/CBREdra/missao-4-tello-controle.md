@@ -2,7 +2,7 @@
 
 ## Organização dos requisitos
 
-Os requisitos foram organizados de acordo com a função de cada subsistema dentro da execução da missão e respondem o que o drone faz (1), com que qualidade navega (2), em que sequência faz (3), quais dados usa (4), quando executa cada ação (5) e em qual plataforma isso roda (6).
+Os requisitos foram organizados de acordo com a função de cada subsistema dentro da execução da missão e respondem o que o drone faz (1), com que qualidade navega (2), em que sequência faz (3), quais dados usa (4), quando executa cada ação (5). Esta missão considera o DJI Tello como plataforma física da Missão 4.
 
 1. **Controle e Navegação (CTRL):** define as principais ações que o UAV deverá executar ao longo da missão, desde a decolagem até o pouso final.
 
@@ -107,19 +107,4 @@ O estado `RETORNO/ABORTAGEM` poderá ser acessado a partir dos estados de voo qu
 | **REQ-M4-TIME-09** | Caso o tempo máximo definido para uma ação seja excedido, o sistema deverá executar o comportamento de recuperação ou abortagem definido para a situação. | Tratamento de falhas | Forçar uma condição de timeout e verificar a resposta do sistema. |
 | **REQ-M4-TIME-10** | O sistema deverá registrar informações temporais suficientes para ordenar os principais eventos, comandos e mudanças de estado da missão. | Toda a missão | Analisar os registros da execução e verificar a sequência temporal dos eventos. |
 
----
 
-## 6. Requisitos de Hardware e Plataforma (HW)
-
-| ID | Requisito | Fluxo da missão | Validação |
-|---|---|---|---|
-| **REQ-M4-HW-01** | A Missão 4 deverá utilizar o **DJI Tello** como plataforma física de desenvolvimento e testes. | Toda a missão | Verificar a utilização do DJI Tello nos testes físicos. |
-| **REQ-M4-HW-02** | O conjunto do UAV e dos componentes adicionados deverá atender ao limite máximo de **330 mm**, conforme estabelecido pelo regulamento. | Preparação / Pré-voo | Medir as dimensões finais do conjunto. |
-| **REQ-M4-HW-03** | O DJI Tello deverá utilizar **protetores de hélice** durante a execução da missão. | Preparação / Pré-voo | Realizar inspeção visual antes do voo. |
-| **REQ-M4-HW-04** | A plataforma deverá permitir o envio dos comandos necessários para decolagem, navegação, posicionamento e pouso. | Decolagem → Navegação → Pouso | Executar os comandos e verificar a resposta do DJI Tello. |
-| **REQ-M4-HW-05** | O sistema deverá ser capaz de obter do DJI Tello os dados necessários à execução e ao monitoramento da missão. | Toda a missão | Verificar a recepção dos dados utilizados pelo sistema. |
-| **REQ-M4-HW-06** | A plataforma deverá disponibilizar o fluxo de imagem da câmera do DJI Tello para utilização pelo sistema de visão. | Exploração / QR Codes | Verificar a recepção do fluxo de vídeo durante o voo. |
-| **REQ-M4-HW-07** | O UAV deverá possuir um **sistema auxiliar de iluminação por LED** capaz de iluminar a região à frente do drone durante a navegação no ambiente escuro. | Entrada / Navegação no labirinto | Realizar teste em baixa iluminação e verificar a área iluminada à frente do UAV. |
-| **REQ-M4-HW-08** | O sistema de iluminação deverá ser instalado de forma a não comprometer a estabilidade, a movimentação, os protetores de hélice ou a operação segura do DJI Tello. | Toda a navegação | Realizar testes de voo com o sistema de iluminação instalado. |
-| **REQ-M4-HW-09** | O sistema de iluminação deverá possuir alimentação suficiente para permanecer operacional durante o período necessário à execução da missão. | Navegação no labirinto | Testar o funcionamento contínuo da iluminação durante o período previsto. |
-| **REQ-M4-HW-10** | A plataforma DJI Tello, com os componentes adicionais instalados, deverá ser validada quanto à capacidade de operar de forma estável e segura no ambiente confinado previsto para a Missão 4. | Validação / Navegação | Realizar testes progressivos em ambiente confinado e avaliar estabilidade, controle e segurança do voo. |
