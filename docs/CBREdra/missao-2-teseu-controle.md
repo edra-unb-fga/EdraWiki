@@ -1,16 +1,6 @@
 **Equipe TESEU**
 
-# **RELATÓRIO DE REQUISITOS DO SISTEMA**
-
-**FASE 2 — TRANSPORTE DE PACOTES**
-
-Síntese SRR \+ DRD \+ Verificação e Validação (V\&V)
-
-Documento destinado à apresentação técnica e à organização interna da equipe.
-
-Brasília — DF
-
-2026
+# **Missão 2 — TRANSPORTE DE PACOTES**
 
 1 INTRODUÇÃO
 
