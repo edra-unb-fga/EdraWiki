@@ -98,12 +98,4 @@ O estado `RETORNO/ABORTAGEM` poderá ser acessado a partir dos estados de voo qu
 | **REQ-M4-TIME-01** | O sistema deverá garantir que os comandos enviados ao DJI Tello sejam executados na sequência prevista pela lógica da missão. | Toda a missão | Registrar os comandos enviados e comparar sua ordem com a sequência prevista. |
 | **REQ-M4-TIME-02** | O sistema deverá respeitar os intervalos necessários entre comandos consecutivos enviados ao DJI Tello. | Toda a missão | Executar sequências de comandos e verificar a ausência de perda ou rejeição devido à temporização. |
 | **REQ-M4-TIME-03** | O sistema deverá aguardar a conclusão ou confirmação de uma ação antes de executar uma ação que dependa dela, quando aplicável. | Transições entre etapas | Verificar se uma ação dependente não é iniciada prematuramente. |
-| **REQ-M4-TIME-04** | O sistema deverá sincronizar o envio de comandos com os estados definidos pela máquina de estados da missão. | Toda a missão | Comparar os registros de estados e comandos. |
-| **REQ-M4-TIME-05** | O sistema deverá evitar o envio de comandos conflitantes ao UAV. | Toda a missão | Simular solicitações concorrentes e verificar a priorização adequada dos comandos. |
-| **REQ-M4-TIME-06** | O sistema deverá controlar o tempo de permanência nos estados que exijam espera ou posicionamento. | Posicionamento / QR Codes | Medir o tempo de permanência e verificar as condições utilizadas para transição. |
-| **REQ-M4-TIME-07** | O sistema deverá monitorar o tempo total da tentativa, considerando o limite máximo de 10 minutos definido no regulamento. | Toda a missão | Verificar o acompanhamento do tempo desde o início até o encerramento da tentativa. |
-| **REQ-M4-TIME-08** | O sistema deverá permitir a definição de tempos máximos de espera para ações da missão. | Navegação / Posicionamento / Comunicação | Simular uma ação sem conclusão e verificar a identificação do tempo excedido. |
-| **REQ-M4-TIME-09** | Caso o tempo máximo definido para uma ação seja excedido, o sistema deverá executar o comportamento de recuperação ou abortagem definido para a situação. | Tratamento de falhas | Forçar uma condição de timeout e verificar a resposta do sistema. |
-| **REQ-M4-TIME-10** | O sistema deverá registrar informações temporais suficientes para ordenar os principais eventos, comandos e mudanças de estado da missão. | Toda a missão | Analisar os registros da execução e verificar a sequência temporal dos eventos. |
-
 
