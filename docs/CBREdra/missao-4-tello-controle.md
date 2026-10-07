@@ -14,7 +14,6 @@ Os requisitos foram organizados de acordo com a função de cada subsistema dent
 
 5. **Sincronização de Tempo e Comandos (TIME):** define os requisitos relacionados à ordem, temporização e sincronização dos comandos enviados ao UAV.
 
-6. **Hardware e Plataforma (HW):** define os requisitos físicos da plataforma DJI Tello e dos componentes adicionais utilizados durante a missão.
 
 ---
 
