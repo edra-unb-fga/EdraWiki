@@ -66,7 +66,7 @@ Os requisitos foram organizados de acordo com a função de cada subsistema dent
 | **REQ-M4-FSM-10** | Quando as condições de pouso forem atendidas, o sistema deverá realizar a transição para o estado de pouso autônomo. | Aproximação → Pouso | Verificar a mudança de estado ao atingir a região de pouso. |
 | **REQ-M4-FSM-11** | Após a confirmação do pouso, o sistema deverá entrar em um estado de missão concluída. | Pouso → Finalização | Verificar o encerramento da execução da missão. |
 | **REQ-M4-FSM-12** | O sistema deverá possuir um estado de retorno ou abortagem acionável conforme as condições definidas para a missão. | Estado ativo → Retorno/Abortagem | Acionar a condição correspondente e verificar a transição de estado. |
-| **REQ-M4-FSM-13** | A máquina de estados deverá impedir transições incompatíveis com a sequência definida para a missão. | Toda a missão | Tentar executar transições inválidas e verificar seu bloqueio. |
+
 
 ### Fluxo principal sugerido
 
