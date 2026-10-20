@@ -27,3 +27,6 @@ stateDiagram-v2
     RETORNO_BASE_DECOLAGEM --> POUSO_FINAL: base de decolagem atingida
     POUSO_FINAL --> MISSAO_FINALIZADA: pouso final concluído
 ```
+## Figura:
+
+![Máquina de Estados](FSM_missao_1_Tello.jpg)
