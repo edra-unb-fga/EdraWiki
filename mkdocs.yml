@@ -31,13 +31,14 @@ nav:
   - CBREdra: 
       - Requisitos:
           - Requisitos Missão 1 (Teseu): 'CBREdra/missão-1-teseu.md'
+          - Requisitos Missão 1: 'CBREdra/missao_1_teseu_visao.md'
           - Requisitos Missão 1 (Tello): 'CBREdra/missao-1-tello-controle.md'
           - Requisitos Missão 2: 'CBREdra/missao-2-teseu-controle.md'
-          - Requisitos Missão 2 - Visão: 'CBREdra/missao-2-teseu-visao.md'
           - Requisitos Missão 3: 'CBREdra/missao-3-tello-controle.md'
           - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
       - FSM e Behavior Trees:
           - Missão 1 (Tello): 'CBREdra/fsm_e_behavior_trees/FSM_missao_1_Tello.md'
+
 theme:
   name: material
   language: pt
