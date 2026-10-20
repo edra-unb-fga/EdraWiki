@@ -29,12 +29,12 @@ nav:
       - Visão geral: 'hardware/index.md'
   - Como contribuir: 'contribuir.md'
   - CBREdra: 
-      - Requisitos: 'CBREdra/requisitos.md'
-      - Requisitos Missão 1 (Teseu): 'CBREdra/missão-1-teseu.md'
-      - Requisitos Missão 1 (Tello): 'CBREdra/missao-1-tello-controle.md'
-      - Requisitos Missão 2: 'CBREdra/missao-2-teseu-controle.md'
-      - Requisitos Missão 3: 'CBREdra/missao-3-tello-controle.md'
-      - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
+      - Requisitos:
+          - Requisitos Missão 1 (Teseu): 'CBREdra/missão-1-teseu.md'
+          - Requisitos Missão 1 (Tello): 'CBREdra/missao-1-tello-controle.md'
+          - Requisitos Missão 2: 'CBREdra/missao-2-teseu-controle.md'
+          - Requisitos Missão 3: 'CBREdra/missao-3-tello-controle.md'
+          - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
       - FSM e Behavior Trees:
           - Missão 1 (Tello): 'CBREdra/fsm_e_behavior_trees/FSM_missao_1_Tello.md'
 theme:
