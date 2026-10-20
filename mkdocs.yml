@@ -35,7 +35,8 @@ nav:
       - Requisitos Missão 2: 'CBREdra/missao-2-teseu-controle.md'
       - Requisitos Missão 3: 'CBREdra/missao-3-tello-controle.md'
       - Requisitos Missão 4: 'CBREdra/missao-4-tello-controle.md'
-
+      - FSM e Behavior Trees:
+          - Missão 1 (Tello): 'CBREdra/fsm_e_behavior_trees/FSM_missao_1_Tello.md'
 theme:
   name: material
   language: pt
